@@ -1,0 +1,522 @@
+{
+ "GateLane": {
+  "N0-kickoff": {
+   "rules": [
+    "RULE-LEGAL-EXCLUDE-CHANCE*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-LEGAL-EXCLUDE-REVIEW"
+   ]
+  },
+  "N1-derandomize": {
+   "rules": [
+    "RULE-SPEC-FAIRNESS"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N2-spec": {
+   "rules": [
+    "RULE-GAME-DOCS",
+    "RULE-AF-ADAPTATION*",
+    "RULE-SPEC-CONSTANTS",
+    "RULE-SPEC-FAIRNESS*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N3-scaffold": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  },
+  "N4-sim": {
+   "rules": [
+    "RULE-SIM-PURITY*",
+    "RULE-SPEC-CONSTANTS*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N5-tune": {
+   "rules": [
+    "RULE-SKILL-DOMINANCE*",
+    "RULE-SKILL-BASELINE*",
+    "RULE-SKILL-EVIDENCE*",
+    "RULE-SKILL-NOT-LUCK*",
+    "RULE-SKILL-BEATS-SIMPLE*",
+    "RULE-CURVE-TREND*",
+    "RULE-CURVE-LINEARITY*",
+    "RULE-CURVE-PEAKS*",
+    "RULE-CURVE-CLIFF*",
+    "RULE-CURVE-FLOW*"
+   ],
+   "notApplicable": [
+    "RULE-CURVE-BEATGRID",
+    "RULE-CURVE-PHRASE"
+   ],
+   "tests": [
+    "TEST-CURVE",
+    "TEST-SKILL-BASELINE",
+    "TEST-SKILL-BEATS-SIMPLE",
+    "TEST-SKILL-DOMINANCE",
+    "TEST-SKILL-EVIDENCE",
+    "TEST-SKILL-NOT-LUCK"
+   ]
+  },
+  "N6-art": {
+   "rules": [
+    "RULE-ART-TW-TABOO*",
+    "RULE-ASSET-REGISTER*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-ART-TABOO-REVIEW"
+   ]
+  },
+  "N7-feel": {
+   "rules": [
+    "RULE-FX-FILTER*",
+    "RULE-TEMPLATE-LEFTOVER*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-FX-FILTER-REVIEW"
+   ]
+  },
+  "N8-budget": {
+   "rules": [
+    "RULE-BUNDLE-SIZE*",
+    "RULE-NO-RUNTIME-CDN*",
+    "RULE-DRAWCALL-2D*"
+   ],
+   "notApplicable": [
+    "RULE-DRAWCALL-3D"
+   ],
+   "tests": [
+    "TEST-SIZE",
+    "TEST-DRAWCALL-REVIEW"
+   ]
+  },
+  "N9-human": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  },
+  "N10-release": {
+   "rules": [
+    "RULE-BUNDLE-SIZE*",
+    "RULE-NO-RUNTIME-CDN*",
+    "RULE-DRAWCALL-2D*",
+    "RULE-SIM-PURITY*",
+    "RULE-SKILL-DOMINANCE*",
+    "RULE-SKILL-BASELINE*",
+    "RULE-SKILL-EVIDENCE*",
+    "RULE-SKILL-NOT-LUCK*",
+    "RULE-SKILL-BEATS-SIMPLE*",
+    "RULE-SKILL-CLOSENESS*",
+    "RULE-CURVE-TREND*",
+    "RULE-CURVE-LINEARITY*",
+    "RULE-CURVE-PEAKS*",
+    "RULE-CURVE-CLIFF*",
+    "RULE-CURVE-FLOW*",
+    "RULE-FX-FILTER*",
+    "RULE-LEGAL-EXCLUDE-CHANCE*",
+    "RULE-ART-TW-TABOO*",
+    "RULE-GAME-DOCS*",
+    "RULE-GAME-REPORTS*",
+    "RULE-AF-ADAPTATION*",
+    "RULE-TEMPLATE-LEFTOVER*",
+    "RULE-REPORT-FRESH*",
+    "RULE-SPEC-CONSTANTS*",
+    "RULE-SPEC-FAIRNESS*",
+    "RULE-KB-CITED*",
+    "RULE-ASSET-REGISTER*",
+    "RULE-KB-CARDS*",
+    "RULE-KB-CARD-SIZE*"
+   ],
+   "notApplicable": [
+    "RULE-DRAWCALL-3D",
+    "RULE-CURVE-BEATGRID",
+    "RULE-CURVE-PHRASE"
+   ],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-INDEX",
+    "TEST-CURVE",
+    "TEST-SIZE",
+    "TEST-SKILL-BASELINE",
+    "TEST-SKILL-BEATS-SIMPLE",
+    "TEST-SKILL-DOMINANCE",
+    "TEST-SKILL-EVIDENCE",
+    "TEST-SKILL-NOT-LUCK",
+    "TEST-ART-TABOO-REVIEW",
+    "TEST-DRAWCALL-REVIEW",
+    "TEST-FX-FILTER-REVIEW",
+    "TEST-LEGAL-EXCLUDE-REVIEW",
+    "TEST-SKILL-CLOSENESS-REVIEW"
+   ]
+  },
+  "N11-feedback": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  }
+ },
+ "TwinStrike": {
+  "N0-kickoff": {
+   "rules": [
+    "RULE-LEGAL-EXCLUDE-CHANCE*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-LEGAL-EXCLUDE-REVIEW"
+   ]
+  },
+  "N1-derandomize": {
+   "rules": [
+    "RULE-SPEC-FAIRNESS"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N2-spec": {
+   "rules": [
+    "RULE-GAME-DOCS",
+    "RULE-SPEC-CONSTANTS",
+    "RULE-SPEC-FAIRNESS*"
+   ],
+   "notApplicable": [
+    "RULE-AF-ADAPTATION"
+   ],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N3-scaffold": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  },
+  "N4-sim": {
+   "rules": [
+    "RULE-SIM-PURITY*",
+    "RULE-SPEC-CONSTANTS*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N5-tune": {
+   "rules": [
+    "RULE-SKILL-DOMINANCE*",
+    "RULE-SKILL-BASELINE*",
+    "RULE-SKILL-EVIDENCE*",
+    "RULE-SKILL-NOT-LUCK*",
+    "RULE-SKILL-BEATS-SIMPLE*",
+    "RULE-CURVE-TREND*",
+    "RULE-CURVE-LINEARITY*",
+    "RULE-CURVE-PEAKS*",
+    "RULE-CURVE-CLIFF*",
+    "RULE-CURVE-FLOW*",
+    "RULE-CURVE-BEATGRID*",
+    "RULE-CURVE-PHRASE*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-CURVE",
+    "TEST-SKILL-BASELINE",
+    "TEST-SKILL-BEATS-SIMPLE",
+    "TEST-SKILL-DOMINANCE",
+    "TEST-SKILL-EVIDENCE",
+    "TEST-SKILL-NOT-LUCK"
+   ]
+  },
+  "N6-art": {
+   "rules": [
+    "RULE-ART-TW-TABOO*",
+    "RULE-ASSET-REGISTER*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-ART-TABOO-REVIEW"
+   ]
+  },
+  "N7-feel": {
+   "rules": [
+    "RULE-FX-FILTER*",
+    "RULE-TEMPLATE-LEFTOVER*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-FX-FILTER-REVIEW"
+   ]
+  },
+  "N8-budget": {
+   "rules": [
+    "RULE-BUNDLE-SIZE*",
+    "RULE-NO-RUNTIME-CDN*",
+    "RULE-DRAWCALL-2D*"
+   ],
+   "notApplicable": [
+    "RULE-DRAWCALL-3D"
+   ],
+   "tests": [
+    "TEST-SIZE",
+    "TEST-DRAWCALL-REVIEW"
+   ]
+  },
+  "N9-human": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  },
+  "N10-release": {
+   "rules": [
+    "RULE-BUNDLE-SIZE*",
+    "RULE-NO-RUNTIME-CDN*",
+    "RULE-DRAWCALL-2D*",
+    "RULE-SIM-PURITY*",
+    "RULE-SKILL-DOMINANCE*",
+    "RULE-SKILL-BASELINE*",
+    "RULE-SKILL-EVIDENCE*",
+    "RULE-SKILL-NOT-LUCK*",
+    "RULE-SKILL-BEATS-SIMPLE*",
+    "RULE-SKILL-CLOSENESS*",
+    "RULE-CURVE-TREND*",
+    "RULE-CURVE-LINEARITY*",
+    "RULE-CURVE-PEAKS*",
+    "RULE-CURVE-CLIFF*",
+    "RULE-CURVE-FLOW*",
+    "RULE-CURVE-BEATGRID*",
+    "RULE-CURVE-PHRASE*",
+    "RULE-FX-FILTER*",
+    "RULE-LEGAL-EXCLUDE-CHANCE*",
+    "RULE-ART-TW-TABOO*",
+    "RULE-GAME-DOCS*",
+    "RULE-GAME-REPORTS*",
+    "RULE-TEMPLATE-LEFTOVER*",
+    "RULE-REPORT-FRESH*",
+    "RULE-SPEC-CONSTANTS*",
+    "RULE-SPEC-FAIRNESS*",
+    "RULE-KB-CITED*",
+    "RULE-ASSET-REGISTER*",
+    "RULE-KB-CARDS*",
+    "RULE-KB-CARD-SIZE*"
+   ],
+   "notApplicable": [
+    "RULE-DRAWCALL-3D",
+    "RULE-AF-ADAPTATION"
+   ],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-INDEX",
+    "TEST-CURVE",
+    "TEST-SIZE",
+    "TEST-SKILL-BASELINE",
+    "TEST-SKILL-BEATS-SIMPLE",
+    "TEST-SKILL-DOMINANCE",
+    "TEST-SKILL-EVIDENCE",
+    "TEST-SKILL-NOT-LUCK",
+    "TEST-ART-TABOO-REVIEW",
+    "TEST-DRAWCALL-REVIEW",
+    "TEST-FX-FILTER-REVIEW",
+    "TEST-LEGAL-EXCLUDE-REVIEW",
+    "TEST-SKILL-CLOSENESS-REVIEW"
+   ]
+  },
+  "N11-feedback": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  }
+ },
+ "SwarmDuel": {
+  "N0-kickoff": {
+   "rules": [
+    "RULE-LEGAL-EXCLUDE-CHANCE*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-LEGAL-EXCLUDE-REVIEW"
+   ]
+  },
+  "N1-derandomize": {
+   "rules": [
+    "RULE-SPEC-FAIRNESS"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N2-spec": {
+   "rules": [
+    "RULE-GAME-DOCS",
+    "RULE-SPEC-CONSTANTS",
+    "RULE-SPEC-FAIRNESS*"
+   ],
+   "notApplicable": [
+    "RULE-AF-ADAPTATION"
+   ],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N3-scaffold": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  },
+  "N4-sim": {
+   "rules": [
+    "RULE-SIM-PURITY*",
+    "RULE-SPEC-CONSTANTS*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT"
+   ]
+  },
+  "N5-tune": {
+   "rules": [
+    "RULE-SKILL-DOMINANCE*",
+    "RULE-SKILL-BASELINE*",
+    "RULE-SKILL-EVIDENCE*",
+    "RULE-SKILL-NOT-LUCK*",
+    "RULE-SKILL-BEATS-SIMPLE*",
+    "RULE-CURVE-TREND*",
+    "RULE-CURVE-LINEARITY*",
+    "RULE-CURVE-PEAKS*",
+    "RULE-CURVE-CLIFF*",
+    "RULE-CURVE-FLOW*"
+   ],
+   "notApplicable": [
+    "RULE-CURVE-BEATGRID",
+    "RULE-CURVE-PHRASE"
+   ],
+   "tests": [
+    "TEST-CURVE",
+    "TEST-SKILL-BASELINE",
+    "TEST-SKILL-BEATS-SIMPLE",
+    "TEST-SKILL-DOMINANCE",
+    "TEST-SKILL-EVIDENCE",
+    "TEST-SKILL-NOT-LUCK"
+   ]
+  },
+  "N6-art": {
+   "rules": [
+    "RULE-ART-TW-TABOO*",
+    "RULE-ASSET-REGISTER*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-ART-TABOO-REVIEW"
+   ]
+  },
+  "N7-feel": {
+   "rules": [
+    "RULE-FX-FILTER*",
+    "RULE-TEMPLATE-LEFTOVER*"
+   ],
+   "notApplicable": [],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-FX-FILTER-REVIEW"
+   ]
+  },
+  "N8-budget": {
+   "rules": [
+    "RULE-BUNDLE-SIZE*",
+    "RULE-NO-RUNTIME-CDN*",
+    "RULE-DRAWCALL-2D*"
+   ],
+   "notApplicable": [
+    "RULE-DRAWCALL-3D"
+   ],
+   "tests": [
+    "TEST-SIZE",
+    "TEST-DRAWCALL-REVIEW"
+   ]
+  },
+  "N9-human": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  },
+  "N10-release": {
+   "rules": [
+    "RULE-BUNDLE-SIZE*",
+    "RULE-NO-RUNTIME-CDN*",
+    "RULE-DRAWCALL-2D*",
+    "RULE-SIM-PURITY*",
+    "RULE-SKILL-DOMINANCE*",
+    "RULE-SKILL-BASELINE*",
+    "RULE-SKILL-EVIDENCE*",
+    "RULE-SKILL-NOT-LUCK*",
+    "RULE-SKILL-BEATS-SIMPLE*",
+    "RULE-SKILL-CLOSENESS*",
+    "RULE-CURVE-TREND*",
+    "RULE-CURVE-LINEARITY*",
+    "RULE-CURVE-PEAKS*",
+    "RULE-CURVE-CLIFF*",
+    "RULE-CURVE-FLOW*",
+    "RULE-FX-FILTER*",
+    "RULE-LEGAL-EXCLUDE-CHANCE*",
+    "RULE-ART-TW-TABOO*",
+    "RULE-GAME-DOCS*",
+    "RULE-GAME-REPORTS*",
+    "RULE-TEMPLATE-LEFTOVER*",
+    "RULE-REPORT-FRESH*",
+    "RULE-SPEC-CONSTANTS*",
+    "RULE-SPEC-FAIRNESS*",
+    "RULE-KB-CITED*",
+    "RULE-ASSET-REGISTER*",
+    "RULE-KB-CARDS*",
+    "RULE-KB-CARD-SIZE*"
+   ],
+   "notApplicable": [
+    "RULE-DRAWCALL-3D",
+    "RULE-CURVE-BEATGRID",
+    "RULE-CURVE-PHRASE",
+    "RULE-AF-ADAPTATION"
+   ],
+   "tests": [
+    "TEST-AUDIT",
+    "TEST-INDEX",
+    "TEST-CURVE",
+    "TEST-SIZE",
+    "TEST-SKILL-BASELINE",
+    "TEST-SKILL-BEATS-SIMPLE",
+    "TEST-SKILL-DOMINANCE",
+    "TEST-SKILL-EVIDENCE",
+    "TEST-SKILL-NOT-LUCK",
+    "TEST-ART-TABOO-REVIEW",
+    "TEST-DRAWCALL-REVIEW",
+    "TEST-FX-FILTER-REVIEW",
+    "TEST-LEGAL-EXCLUDE-REVIEW",
+    "TEST-SKILL-CLOSENESS-REVIEW"
+   ]
+  },
+  "N11-feedback": {
+   "rules": [],
+   "notApplicable": [],
+   "tests": []
+  }
+ }
+}

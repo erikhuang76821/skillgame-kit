@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "game": "shared",
+  "pathBase": "",
+  "about": "skill 範本（.claude/skills/lite-skillgame-stack/templates）附帶的資產與特效配方；路徑以 repo 根為基準。新遊戲複製後要登錄到自己的 art/manifest.json（derivedFrom 指回這裡）。",
+  "assets": [
+    {
+      "id": "shared.tpl.fx.shake",
+      "legacyId": "tpl.fx.shake",
+      "kind": "fx-sheet",
+      "status": "template",
+      "name": "skill 範本 shake.js",
+      "type": "特效",
+      "files": {
+        "raw": [],
+        "prompt": [],
+        "shipped": [
+          ".claude/skills/lite-skillgame-stack/templates/src/fx/shake.js"
+        ]
+      },
+      "recipe": "抖 #stage-shake DOM 容器；FEEL.shake light 4px/0.12s、crit 8px/0.25s、boss 14px/0.4s；step 0.032s；rotPerPx 0.05°；線性衰減",
+      "note": "抖 #stage-shake DOM 容器；FEEL.shake light 4px/0.12s、crit 8px/0.25s、boss 14px/0.4s；step 0.032s；rotPerPx 0.05°；線性衰減",
+      "keywords": [
+        "screen shake",
+        "震屏",
+        "dom",
+        "gsap",
+        "template",
+        "範本",
+        "juice",
+        "打擊感"
+      ],
+      "reusePolicy": "template",
+      "contentHash": "sha256:d289b04556ba2c04fb8439dbebeb790a756e6c6bf59026fc3960ae2c43aa1c31"
+    },
+    {
+      "id": "shared.tpl.fx.overlay",
+      "legacyId": "tpl.fx.overlay",
+      "kind": "fx-sheet",
+      "status": "template",
+      "name": "skill 範本 overlay.js",
+      "type": "特效",
+      "files": {
+        "raw": [],
+        "prompt": [],
+        "shipped": [
+          ".claude/skills/lite-skillgame-stack/templates/src/fx/overlay.js"
+        ]
+      },
+      "recipe": "CSS #fx-vignette radial 55%→rgba(200,0,0,.65)；#fx-flash 白 screen；FEEL.flash α0.6/0.12s；hurt 0.6s power2.out",
+      "note": "CSS #fx-vignette radial 55%→rgba(200,0,0,.65)；#fx-flash 白 screen；FEEL.flash α0.6/0.12s；hurt 0.6s power2.out",
+      "keywords": [
+        "vignette",
+        "暗角",
+        "flash",
+        "閃白",
+        "hurt",
+        "受傷",
+        "css",
+        "template",
+        "範本",
+        "juice",
+        "打擊感"
+      ],
+      "reusePolicy": "template",
+      "contentHash": "sha256:071972e7857357bcafe5db5b3c51bf51e4aad9d9052df3861a3357981e645158"
+    },
+    {
+      "id": "shared.tpl.fx.shockwave",
+      "legacyId": "tpl.fx.shockwave",
+      "kind": "fx-sheet",
+      "status": "template",
+      "name": "skill 範本 shockwave.js",
+      "type": "特效",
+      "files": {
+        "raw": [],
+        "prompt": [],
+        "shipped": [
+          ".claude/skills/lite-skillgame-stack/templates/src/fx/shockwave.js"
+        ]
+      },
+      "recipe": "GLSL 位移環 filter：radius 260、width 40、amp 18、0.45s power2.out；只在播放期間掛 filter。SwarmDuel 禁用 filter（改 vfx.howl_ring）",
+      "note": "GLSL 位移環 filter：radius 260、width 40、amp 18、0.45s power2.out；只在播放期間掛 filter。SwarmDuel 禁用 filter（改 vfx.howl_ring）",
+      "keywords": [
+        "shockwave",
+        "衝擊波",
+        "filter",
+        "glsl",
+        "distortion",
+        "template",
+        "範本",
+        "juice",
+        "打擊感"
+      ],
+      "reusePolicy": "template",
+      "contentHash": "sha256:04d65a1262102eab3abfb9f88132579a78a3e43444a9a732a139031fc870ca37"
+    },
+    {
+      "id": "shared.tpl.fx.particles",
+      "legacyId": "tpl.fx.particles",
+      "kind": "fx-sheet",
+      "status": "template",
+      "name": "skill 範本 particles.js",
+      "type": "特效",
+      "files": {
+        "raw": [],
+        "prompt": [],
+        "shipped": [
+          ".claude/skills/lite-skillgame-stack/templates/src/fx/particles.js"
+        ]
+      },
+      "recipe": "ParticleContainer 1 DC、4 px 白點 generateTexture、add 混色；burst 24、speed 420、life 0.5s、gravity 900、max 512；用 Math.random（只限 render 層）",
+      "note": "ParticleContainer 1 DC、4 px 白點 generateTexture、add 混色；burst 24、speed 420、life 0.5s、gravity 900、max 512；用 Math.random（只限 render 層）",
+      "keywords": [
+        "particle",
+        "粒子",
+        "particlecontainer",
+        "burst",
+        "template",
+        "範本",
+        "juice",
+        "打擊感"
+      ],
+      "reusePolicy": "template",
+      "contentHash": "sha256:e699951e1a8fb618c84e88743be0dfd7548b7af200aab57871e0ade6dbb5fb0a"
+    },
+    {
+      "id": "shared.tpl.terrain.dust",
+      "legacyId": "tpl.terrain.dust",
+      "kind": "background",
+      "status": "template",
+      "name": "skill 範本地表材質 dust（AI 生成 tile）",
+      "type": "場景",
+      "files": {
+        "raw": [],
+        "prompt": [
+          ".claude/skills/lite-skillgame-stack/templates/src/assets/terrain/dust.prompt.txt"
+        ],
+        "shipped": [
+          ".claude/skills/lite-skillgame-stack/templates/src/assets/terrain/dust.png"
+        ]
+      },
+      "note": "knowledge-base/11 ② v2 提詞生成的無縫 tile（乾燥塵土、夜晚荒原），經 tools/tile_prep.py 後處理、tile_check.py 驗收；terrainConfig.js 的 src 載入，失敗退回 noiseTile()。新遊戲沿用前先換題材重生",
+      "keywords": [
+        "terrain",
+        "地表",
+        "dust",
+        "塵土",
+        "tile",
+        "材質",
+        "seamless",
+        "無縫",
+        "template",
+        "範本",
+        "ground",
+        "地面"
+      ],
+      "reusePolicy": "template",
+      "contentHash": "sha256:ec69f3961bc1f1260b5a28540cad0209847ea59cf72ee31b5761798c12783dd1"
+    }
+  ]
+}

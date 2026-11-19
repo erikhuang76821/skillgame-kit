@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "game": "LanternHold",
+  "genre": ["tower-defense", "survivor"],
+  "skillAxis": ["planning", "resource"],
+  "renderer": ["2d"],
+  "scriptedProgression": true,
+  "source": ["af-horde-defense", "af-survivor-skill-pick"],
+  "jurisdiction": ["TW", "US-*"],
+  "artStyle": ["pixel"]
+}

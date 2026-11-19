@@ -1,0 +1,850 @@
+{
+ "source": "https://github.com/johnwu0626/johnwu (master, git tree API; image/WAV headers via 4KB range requests; MP3 durations decoded in browser)",
+ "measured": "2026-10-19",
+ "three-kingdoms-survivor": [
+  {
+   "path": "assets/arena_floor.webp",
+   "bytes": 976322,
+   "w": 1040,
+   "h": 693,
+   "codec": "VP8L lossless",
+   "bpp": 10.84
+  },
+  {
+   "path": "assets/body_caocao.webp",
+   "bytes": 114574,
+   "w": 266,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 8.97
+  },
+  {
+   "path": "assets/body_charger.webp",
+   "bytes": 108840,
+   "w": 340,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 6.67
+  },
+  {
+   "path": "assets/body_grunt.webp",
+   "bytes": 102548,
+   "w": 384,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 5.56
+  },
+  {
+   "path": "assets/body_guanyu.webp",
+   "bytes": 126830,
+   "w": 372,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 7.1
+  },
+  {
+   "path": "assets/body_lubu.webp",
+   "bytes": 177312,
+   "w": 416,
+   "h": 448,
+   "codec": "VP8L lossless",
+   "bpp": 7.61
+  },
+  {
+   "path": "assets/body_shield.webp",
+   "bytes": 104174,
+   "w": 340,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 6.38
+  },
+  {
+   "path": "assets/body_sunshangxiang.webp",
+   "bytes": 131610,
+   "w": 371,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 7.39
+  },
+  {
+   "path": "assets/body_xiahoudun.webp",
+   "bytes": 101770,
+   "w": 306,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 6.93
+  },
+  {
+   "path": "assets/body_zhangfei.webp",
+   "bytes": 99170,
+   "w": 273,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 7.57
+  },
+  {
+   "path": "assets/body_zhaoyun.webp",
+   "bytes": 113622,
+   "w": 309,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 7.66
+  },
+  {
+   "path": "assets/body_zhouyu.webp",
+   "bytes": 107710,
+   "w": 287,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 7.82
+  },
+  {
+   "path": "assets/body_zhugeliang.webp",
+   "bytes": 110536,
+   "w": 288,
+   "h": 384,
+   "codec": "VP8L lossless",
+   "bpp": 8.0
+  },
+  {
+   "path": "assets/boss_lubu.webp",
+   "bytes": 159238,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 12.44
+  },
+  {
+   "path": "assets/hero_caocao.webp",
+   "bytes": 146288,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.43
+  },
+  {
+   "path": "assets/hero_guanyu.webp",
+   "bytes": 149658,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.69
+  },
+  {
+   "path": "assets/hero_sunshangxiang.webp",
+   "bytes": 150948,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.79
+  },
+  {
+   "path": "assets/hero_xiahoudun.webp",
+   "bytes": 149008,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.64
+  },
+  {
+   "path": "assets/hero_zhangfei.webp",
+   "bytes": 155940,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 12.18
+  },
+  {
+   "path": "assets/hero_zhaoyun.webp",
+   "bytes": 147426,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.52
+  },
+  {
+   "path": "assets/hero_zhouyu.webp",
+   "bytes": 150850,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.79
+  },
+  {
+   "path": "assets/hero_zhugeliang.webp",
+   "bytes": 139502,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 10.9
+  },
+  {
+   "path": "assets/item_jade.webp",
+   "bytes": 32454,
+   "w": 160,
+   "h": 160,
+   "codec": "VP8L lossless",
+   "bpp": 10.14
+  },
+  {
+   "path": "assets/rig_bladering.webp",
+   "bytes": 135910,
+   "w": 384,
+   "h": 378,
+   "codec": "VP8L lossless",
+   "bpp": 7.49
+  },
+  {
+   "path": "assets/rig_bow.webp",
+   "bytes": 59288,
+   "w": 384,
+   "h": 228,
+   "codec": "VP8L lossless",
+   "bpp": 5.42
+  },
+  {
+   "path": "assets/rig_cannon.webp",
+   "bytes": 72084,
+   "w": 384,
+   "h": 191,
+   "codec": "VP8L lossless",
+   "bpp": 7.86
+  },
+  {
+   "path": "assets/rig_fangtian.webp",
+   "bytes": 23188,
+   "w": 384,
+   "h": 138,
+   "codec": "VP8L lossless",
+   "bpp": 3.5
+  },
+  {
+   "path": "assets/rig_firefan.webp",
+   "bytes": 96582,
+   "w": 384,
+   "h": 285,
+   "codec": "VP8L lossless",
+   "bpp": 7.06
+  },
+  {
+   "path": "assets/rig_halberd.webp",
+   "bytes": 29840,
+   "w": 384,
+   "h": 101,
+   "codec": "VP8L lossless",
+   "bpp": 6.16
+  },
+  {
+   "path": "assets/rig_needles.webp",
+   "bytes": 77906,
+   "w": 384,
+   "h": 198,
+   "codec": "VP8L lossless",
+   "bpp": 8.2
+  },
+  {
+   "path": "assets/rig_serpent.webp",
+   "bytes": 19492,
+   "w": 384,
+   "h": 56,
+   "codec": "VP8L lossless",
+   "bpp": 7.25
+  },
+  {
+   "path": "assets/rig_spear.webp",
+   "bytes": 29158,
+   "w": 384,
+   "h": 87,
+   "codec": "VP8L lossless",
+   "bpp": 6.98
+  },
+  {
+   "path": "assets/rig_thunder.webp",
+   "bytes": 110856,
+   "w": 384,
+   "h": 284,
+   "codec": "VP8L lossless",
+   "bpp": 8.13
+  },
+  {
+   "path": "assets/rig_twinswords.webp",
+   "bytes": 63296,
+   "w": 384,
+   "h": 199,
+   "codec": "VP8L lossless",
+   "bpp": 6.63
+  },
+  {
+   "path": "assets/tactic_scroll.webp",
+   "bytes": 148176,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.58
+  },
+  {
+   "path": "assets/title_banner.webp",
+   "bytes": 1246044,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 10.82
+  },
+  {
+   "path": "assets/wpn_bagua.webp",
+   "bytes": 161844,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 12.64
+  },
+  {
+   "path": "assets/wpn_bladering.webp",
+   "bytes": 168704,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 13.18
+  },
+  {
+   "path": "assets/wpn_bow.webp",
+   "bytes": 145468,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.36
+  },
+  {
+   "path": "assets/wpn_cannon.webp",
+   "bytes": 162416,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 12.69
+  },
+  {
+   "path": "assets/wpn_fangtian.webp",
+   "bytes": 151250,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.82
+  },
+  {
+   "path": "assets/wpn_firefan.webp",
+   "bytes": 177162,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 13.84
+  },
+  {
+   "path": "assets/wpn_halberd.webp",
+   "bytes": 152254,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.89
+  },
+  {
+   "path": "assets/wpn_needles.webp",
+   "bytes": 143214,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.19
+  },
+  {
+   "path": "assets/wpn_serpent.webp",
+   "bytes": 131546,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 10.28
+  },
+  {
+   "path": "assets/wpn_spear.webp",
+   "bytes": 158344,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 12.37
+  },
+  {
+   "path": "assets/wpn_thunder.webp",
+   "bytes": 189996,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 14.84
+  },
+  {
+   "path": "assets/wpn_twinswords.webp",
+   "bytes": 152412,
+   "w": 320,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 11.91
+  }
+ ],
+ "9527": [
+  {
+   "path": "assets/audio/bgm-stage-01-earth-launch.mp3",
+   "bytes": 685724,
+   "codec": "MP3 stereo",
+   "seconds": 68.5,
+   "kbps": 80
+  },
+  {
+   "path": "assets/audio/bgm-stage-02-low-earth-orbit.mp3",
+   "bytes": 738524,
+   "codec": "MP3 stereo",
+   "seconds": 73.8,
+   "kbps": 80
+  },
+  {
+   "path": "assets/audio/bgm-stage-04-lunar-operations.mp3",
+   "bytes": 768284,
+   "codec": "MP3 stereo",
+   "seconds": 76.8,
+   "kbps": 80
+  },
+  {
+   "path": "assets/audio/bgm-stage-10-mars-arrival.mp3",
+   "bytes": 710924,
+   "codec": "MP3 stereo",
+   "seconds": 71.0,
+   "kbps": 80
+  },
+  {
+   "path": "assets/audio/sfx-bomb-a.wav",
+   "bytes": 56684,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 1.18
+  },
+  {
+   "path": "assets/audio/sfx-bomb-b.wav",
+   "bytes": 61484,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 1.28
+  },
+  {
+   "path": "assets/audio/sfx-bomb-c.wav",
+   "bytes": 66284,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 1.38
+  },
+  {
+   "path": "assets/audio/sfx-bomb-pickup.wav",
+   "bytes": 20684,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.43
+  },
+  {
+   "path": "assets/audio/sfx-boss-destroy.wav",
+   "bytes": 44204,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.92
+  },
+  {
+   "path": "assets/audio/sfx-boss-hit.wav",
+   "bytes": 9164,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.19
+  },
+  {
+   "path": "assets/audio/sfx-boss-warning.wav",
+   "bytes": 42284,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.88
+  },
+  {
+   "path": "assets/audio/sfx-enemy-destroy.wav",
+   "bytes": 13004,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.27
+  },
+  {
+   "path": "assets/audio/sfx-enemy-hit.wav",
+   "bytes": 5804,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.12
+  },
+  {
+   "path": "assets/audio/sfx-launch.wav",
+   "bytes": 29804,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.62
+  },
+  {
+   "path": "assets/audio/sfx-player-explosion.wav",
+   "bytes": 47084,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.98
+  },
+  {
+   "path": "assets/audio/sfx-player-hit.wav",
+   "bytes": 17324,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.36
+  },
+  {
+   "path": "assets/audio/sfx-power-pickup.wav",
+   "bytes": 23084,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.48
+  },
+  {
+   "path": "assets/audio/sfx-shot-a.wav",
+   "bytes": 5084,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.1
+  },
+  {
+   "path": "assets/audio/sfx-shot-b.wav",
+   "bytes": 7004,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.14
+  },
+  {
+   "path": "assets/audio/sfx-shot-c.wav",
+   "bytes": 8684,
+   "codec": "PCM WAV",
+   "channels": 1,
+   "sampleRate": 24000,
+   "bits": 16,
+   "seconds": 0.18
+  },
+  {
+   "path": "assets/sprites/boss-carrier-realistic-v11.webp",
+   "bytes": 136864,
+   "w": 286,
+   "h": 480,
+   "codec": "VP8L lossless",
+   "bpp": 7.98
+  },
+  {
+   "path": "assets/sprites/boss-collection-platform-realistic-v1.webp",
+   "bytes": 202394,
+   "w": 470,
+   "h": 480,
+   "codec": "VP8L lossless",
+   "bpp": 7.18
+  },
+  {
+   "path": "assets/sprites/boss-solar-sail-relay-realistic-v3.webp",
+   "bytes": 10480,
+   "w": 306,
+   "h": 199,
+   "codec": "VP8L lossless",
+   "bpp": 1.38
+  },
+  {
+   "path": "assets/sprites/boss-stage-02-realistic-v2.webp",
+   "bytes": 181250,
+   "w": 451,
+   "h": 466,
+   "codec": "VP8L lossless",
+   "bpp": 6.9
+  },
+  {
+   "path": "assets/sprites/boss-stage-03-realistic-v2.webp",
+   "bytes": 100272,
+   "w": 464,
+   "h": 296,
+   "codec": "VP8L lossless",
+   "bpp": 5.84
+  },
+  {
+   "path": "assets/sprites/boss-stage-04-realistic-v2.webp",
+   "bytes": 246994,
+   "w": 470,
+   "h": 430,
+   "codec": "VP8L lossless",
+   "bpp": 9.78
+  },
+  {
+   "path": "assets/sprites/boss-stage-05-realistic-v2.webp",
+   "bytes": 126478,
+   "w": 465,
+   "h": 404,
+   "codec": "VP8L lossless",
+   "bpp": 5.39
+  },
+  {
+   "path": "assets/sprites/boss-stage-06-realistic-v2.webp",
+   "bytes": 107884,
+   "w": 171,
+   "h": 463,
+   "codec": "VP8L lossless",
+   "bpp": 10.9
+  },
+  {
+   "path": "assets/sprites/boss-stage-07-realistic-v2.webp",
+   "bytes": 80784,
+   "w": 464,
+   "h": 420,
+   "codec": "VP8L lossless",
+   "bpp": 3.32
+  },
+  {
+   "path": "assets/sprites/boss-stage-08-realistic-v2.webp",
+   "bytes": 173390,
+   "w": 459,
+   "h": 383,
+   "codec": "VP8L lossless",
+   "bpp": 7.89
+  },
+  {
+   "path": "assets/sprites/boss-stage-09-realistic-v2.webp",
+   "bytes": 143604,
+   "w": 446,
+   "h": 426,
+   "codec": "VP8L lossless",
+   "bpp": 6.05
+  },
+  {
+   "path": "assets/sprites/boss-stage-10-realistic-v2.webp",
+   "bytes": 54386,
+   "w": 143,
+   "h": 474,
+   "codec": "VP8L lossless",
+   "bpp": 6.42
+  },
+  {
+   "path": "assets/sprites/boss-stage-11-realistic-v2.webp",
+   "bytes": 112608,
+   "w": 458,
+   "h": 260,
+   "codec": "VP8L lossless",
+   "bpp": 7.57
+  },
+  {
+   "path": "assets/sprites/boss-stage-12-realistic-v2.webp",
+   "bytes": 283836,
+   "w": 480,
+   "h": 478,
+   "codec": "VP8L lossless",
+   "bpp": 9.9
+  },
+  {
+   "path": "assets/sprites/enemy-bomber-realistic-v1.webp",
+   "bytes": 43280,
+   "w": 209,
+   "h": 228,
+   "codec": "VP8L lossless",
+   "bpp": 7.27
+  },
+  {
+   "path": "assets/sprites/enemy-gunship-realistic-v1.webp",
+   "bytes": 34282,
+   "w": 147,
+   "h": 231,
+   "codec": "VP8L lossless",
+   "bpp": 8.08
+  },
+  {
+   "path": "assets/sprites/enemy-interceptor-realistic-v11.webp",
+   "bytes": 65746,
+   "w": 266,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 6.18
+  },
+  {
+   "path": "assets/sprites/enemy-orbital-interceptor-realistic-v1.webp",
+   "bytes": 66264,
+   "w": 305,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 5.43
+  },
+  {
+   "path": "assets/sprites/enemy-orbital-scout-realistic-v1.webp",
+   "bytes": 69474,
+   "w": 320,
+   "h": 317,
+   "codec": "VP8L lossless",
+   "bpp": 5.48
+  },
+  {
+   "path": "assets/sprites/enemy-orbital-turret-realistic-v1.webp",
+   "bytes": 104016,
+   "w": 309,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 8.42
+  },
+  {
+   "path": "assets/sprites/enemy-scout-realistic-v11.webp",
+   "bytes": 43764,
+   "w": 190,
+   "h": 320,
+   "codec": "VP8L lossless",
+   "bpp": 5.76
+  },
+  {
+   "path": "assets/sprites/enemy-spreader-realistic-v1.webp",
+   "bytes": 27580,
+   "w": 232,
+   "h": 207,
+   "codec": "VP8L lossless",
+   "bpp": 4.59
+  },
+  {
+   "path": "assets/sprites/orbital-asteroid-realistic-v1.webp",
+   "bytes": 125000,
+   "w": 320,
+   "h": 318,
+   "codec": "VP8L lossless",
+   "bpp": 9.83
+  },
+  {
+   "path": "assets/sprites/ships-realistic-atlas-v1.webp",
+   "bytes": 378730,
+   "w": 900,
+   "h": 900,
+   "codec": "VP8L lossless",
+   "bpp": 3.74
+  },
+  {
+   "path": "assets/sprites/stage-01-earth-orbit-v1.webp",
+   "bytes": 832798,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 7.23
+  },
+  {
+   "path": "assets/sprites/stage-02-low-earth-orbit-v1.webp",
+   "bytes": 928386,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 8.06
+  },
+  {
+   "path": "assets/sprites/stage-03-earth-moon-transfer-v1.webp",
+   "bytes": 618954,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 5.37
+  },
+  {
+   "path": "assets/sprites/stage-04-lunar-near-side-v1.webp",
+   "bytes": 929416,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 8.07
+  },
+  {
+   "path": "assets/sprites/stage-05-lunar-far-side-v1.webp",
+   "bytes": 872476,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 7.57
+  },
+  {
+   "path": "assets/sprites/stage-06-lunar-outpost-v1.webp",
+   "bytes": 876362,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 7.61
+  },
+  {
+   "path": "assets/sprites/stage-07-heliocentric-transfer-v1.webp",
+   "bytes": 628374,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 5.45
+  },
+  {
+   "path": "assets/sprites/stage-08-near-earth-asteroid-route-v1.webp",
+   "bytes": 241034,
+   "w": 1280,
+   "h": 720,
+   "codec": "VP8L lossless",
+   "bpp": 2.09
+  },
+  {
+   "path": "assets/store/app-icon-512.png",
+   "bytes": 346618,
+   "w": 512,
+   "h": 512,
+   "codec": "PNG RGB"
+  },
+  {
+   "path": "assets/store/app-icon-512.webp",
+   "bytes": 249516,
+   "w": 512,
+   "h": 512,
+   "codec": "VP8L lossless",
+   "bpp": 7.61
+  },
+  {
+   "path": "assets/store/feature-graphic-1024x500.png",
+   "bytes": 568628,
+   "w": 1024,
+   "h": 500,
+   "codec": "PNG RGB"
+  },
+  {
+   "path": "assets/store/feature-graphic-1024x500.webp",
+   "bytes": 405476,
+   "w": 1024,
+   "h": 500,
+   "codec": "VP8L lossless",
+   "bpp": 6.34
+  }
+ ]
+}

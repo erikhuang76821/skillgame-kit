@@ -1,0 +1,733 @@
+{
+ "generated": true,
+ "schemaVersion": 1,
+ "about": "產生物，禁止手改。來源：shared/tests/registry.json（測試卡）對照 knowledge-base/index/rules.json（規則的 enforcement 為準，不回寫）；重建：node shared/tools/index-build.mjs。",
+ "counts": {
+  "tests": 17,
+  "byKind": {
+   "audit": 1,
+   "human-playtest": 1,
+   "review": 5,
+   "script": 7,
+   "sim-playtest": 2,
+   "unit": 1
+  },
+  "byCost": {
+   "cheap": 3,
+   "human": 6,
+   "medium": 8
+  },
+  "rules": 32,
+  "covered": 32
+ },
+ "tests": [
+  {
+   "id": "TEST-UNIT",
+   "kind": "unit",
+   "implements": [],
+   "facets": {
+    "topic": [
+     "tech",
+     "fairness"
+    ]
+   },
+   "run": "npm test",
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/test",
+   "needs": [
+    "game/test"
+   ],
+   "cost": "cheap",
+   "fresh": null,
+   "note": "core.test.mjs（核心保證，不改）＋本作 determinism.test.mjs（golden match）；範本版另含 8 種子的 D 門檻試玩。pre-commit 會跑"
+  },
+  {
+   "id": "TEST-SIZE",
+   "kind": "script",
+   "implements": [
+    "RULE-BUNDLE-SIZE",
+    "RULE-NO-RUNTIME-CDN"
+   ],
+   "facets": {
+    "topic": [
+     "budget"
+    ]
+   },
+   "run": "npm run build && npm run size",
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/scripts/size-check.mjs",
+   "needs": [
+    "game/scripts/size-check.mjs"
+   ],
+   "cost": "medium",
+   "fresh": null,
+   "note": "CDN 引用目前只警告"
+  },
+  {
+   "id": "TEST-SKILL-DOMINANCE",
+   "kind": "script",
+   "implements": [
+    "RULE-SKILL-DOMINANCE"
+   ],
+   "facets": {
+    "topic": [
+     "fairness"
+    ]
+   },
+   "run": "node tools/skill-dominance.mjs 30 --out ../docs/skill_dominance_report.md",
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/tools/skill-dominance.mjs",
+   "needs": [
+    "game/tools/bots.mjs",
+    "game/tools/skill-dominance.mjs"
+   ],
+   "produces": "docs/skill_dominance_report.md",
+   "cost": "medium",
+   "fresh": "GAME.version",
+   "note": "只用於現有三款（舊配方的回歸警報，RULE-SKILL-DOMINANCE 的適用範圍指名這三款）。新遊戲用 TEST-SKILL-EVIDENCE 等三張卡"
+  },
+  {
+   "id": "TEST-SKILL-BASELINE",
+   "kind": "script",
+   "implements": [
+    "RULE-SKILL-BASELINE"
+   ],
+   "facets": {
+    "topic": [
+     "fairness",
+     "difficulty"
+    ]
+   },
+   "run": "node tools/skill-dominance.mjs 30 --baseline",
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/tools/skill-dominance.mjs",
+   "needs": [
+    "game/tools/bots.mjs",
+    "game/tools/skill-dominance.mjs",
+    "game/tools/lib/dominance.mjs"
+   ],
+   "cost": "medium",
+   "fresh": "GAME.version",
+   "note": "只用於現有三款（舊配方的回歸警報）。bots.mjs 要匯出 BASELINES（一句話規則的固定策略）；沒有就失敗＝未驗證。同一份報告寫在 skill_dominance_report.md 的「基準策略」一節"
+  },
+  {
+   "id": "TEST-SKILL-EVIDENCE",
+   "kind": "script",
+   "implements": [
+    "RULE-SKILL-EVIDENCE"
+   ],
+   "facets": {
+    "topic": [
+     "fairness"
+    ]
+   },
+   "run": "node tools/skill-evidence.mjs --confirm --require-recorded --rule RULE-SKILL-EVIDENCE",
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/tools/skill-evidence.mjs",
+   "needs": [
+    "game/tools/strategies.mjs",
+    "game/tools/skill-evidence.mjs",
+    "game/tools/lib/evidence.mjs",
+    "docs/skill_evidence_ledger.json"
+   ],
+   "cost": "medium",
+   "fresh": "GAME.version",
+   "note": "策略檔不完整或題數不足時未過。只重跑已記錄的最新一批確認題目（題數沿用紀錄）。紀錄檔是前提，而且至少要有一批（--require-recorded：沒有紀錄或紀錄是空的就以結束碼 2 拒絕）；第一次確認要人在策略凍結後自己下 npm run evidence:confirm，關卡不會自動開批。策略、sim、量法程式或門檻改過後，這個指令以結束碼 2 拒絕並指出下一批（關卡顯示無法執行，不算未過）；換批同樣要人自己加 --generation <n>。三條規則各一張卡，重跑同一批題目、不寫任何檔案（報告由人跑 npm run evidence:confirm 時產生；紀錄檔會核對重跑的逐題結果與紀錄相同）；結束碼只依 --rule 指定的那一條。調校時不要加 --confirm"
+  },
+  {
+   "id": "TEST-SKILL-NOT-LUCK",
+   "kind": "script",
+   "implements": [
+    "RULE-SKILL-NOT-LUCK"
+   ],
+   "facets": {
+    "topic": [
+     "fairness"
+    ]
+   },
+   "run": "node tools/skill-evidence.mjs --confirm --require-recorded --rule RULE-SKILL-NOT-LUCK",
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/tools/skill-evidence.mjs",
+   "needs": [
+    "game/tools/strategies.mjs",
+    "game/tools/skill-evidence.mjs",
+    "game/tools/lib/evidence.mjs",
+    "docs/skill_evidence_ledger.json"
+   ],
+   "cost": "medium",
+   "fresh": "GAME.version",
+   "note": "強策略沒有顯著勝過隨機策略時未過。同一批題目與報告，見 TEST-SKILL-EVIDENCE 的說明"
+  },
+  {
+   "id": "TEST-SKILL-BEATS-SIMPLE",
+   "kind": "script",
+   "implements": [
+    "RULE-SKILL-BEATS-SIMPLE"
+   ],
+   "facets": {
+    "topic": [
+     "fairness"
+    ]
+   },
+   "run": "node tools/skill-evidence.mjs --confirm --require-recorded --rule RULE-SKILL-BEATS-SIMPLE",
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/tools/skill-evidence.mjs",
+   "needs": [
+    "game/tools/strategies.mjs",
+    "game/tools/skill-evidence.mjs",
+    "game/tools/lib/evidence.mjs",
+    "docs/skill_evidence_ledger.json"
+   ],
+   "cost": "medium",
+   "fresh": "GAME.version",
+   "note": "強策略沒有顯著勝過每一條簡單策略時未過。同一批題目與報告，見 TEST-SKILL-EVIDENCE 的說明"
+  },
+  {
+   "id": "TEST-SKILL-CLOSENESS-REVIEW",
+   "kind": "review",
+   "implements": [
+    "RULE-SKILL-CLOSENESS"
+   ],
+   "facets": {
+    "topic": [
+     "fairness"
+    ]
+   },
+   "cwd": "<Game>",
+   "source": null,
+   "needs": [
+    "docs/skill_evidence_report.md"
+   ],
+   "cost": "human",
+   "fresh": null,
+   "checklists": [
+    {
+     "rule": "RULE-SKILL-CLOSENESS",
+     "checklist": "核准人看過確認批次的報告、docs/skill_evidence_ledger.json（用了幾批、各批結果）與 tools/strategies.mjs 的策略定義，寫下接受或退回的理由"
+    }
+   ]
+  },
+  {
+   "id": "TEST-CURVE",
+   "kind": "sim-playtest",
+   "implements": [
+    "RULE-CURVE-TREND",
+    "RULE-CURVE-LINEARITY",
+    "RULE-CURVE-PEAKS",
+    "RULE-CURVE-CLIFF",
+    "RULE-CURVE-FLOW",
+    "RULE-CURVE-BEATGRID",
+    "RULE-CURVE-PHRASE"
+   ],
+   "facets": {
+    "topic": [
+     "difficulty"
+    ]
+   },
+   "run": "npm run playtest",
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/tools/playtest.mjs",
+   "needs": [
+    "game/tools/humanBots.mjs",
+    "game/tools/playtest.mjs"
+   ],
+   "produces": "docs/playtest_report.md",
+   "cost": "medium",
+   "fresh": "GAME.version",
+   "note": "D1–D8；BEATGRID / PHRASE 只對節奏類（規則 selector genre=rhythm）"
+  },
+  {
+   "id": "TEST-PERSONA-PLAYTEST",
+   "kind": "sim-playtest",
+   "implements": [],
+   "facets": {
+    "topic": [
+     "difficulty",
+     "ux"
+    ]
+   },
+   "run": "node tools/persona-playtest.mjs --out ../playtest-data/simulated",
+   "cwd": "<Game>/game",
+   "source": "TwinStrike/game/tools/persona-playtest.mjs",
+   "needs": [
+    "game/tools/persona-playtest.mjs",
+    "game/tools/humanBots.mjs"
+   ],
+   "produces": "playtest-data/simulated/",
+   "cost": "medium",
+   "fresh": "GAME.version",
+   "note": "角色扮演模擬（不是真人）：照真人試玩規程產生同格式紀錄，給 TEST-HUMAN-PLAYTEST 的分析器預演。目前只有 TwinStrike 有，第二款需要時再共用化"
+  },
+  {
+   "id": "TEST-HUMAN-PLAYTEST",
+   "kind": "human-playtest",
+   "implements": [],
+   "facets": {
+    "topic": [
+     "difficulty",
+     "fairness"
+    ]
+   },
+   "run": "npm run human-report",
+   "cwd": "<Game>/game",
+   "source": "TwinStrike/game/tools/human-report.mjs",
+   "needs": [
+    "game/tools/human-report.mjs",
+    "playtest-data/"
+   ],
+   "produces": "docs/human_playtest_report.md",
+   "cost": "human",
+   "fresh": "GAME.version",
+   "note": "重播驗證真人紀錄並逐段對照人性化 bot。N9 人機一致性規則尚未建立（決策 §8 第 4 項：先 hypothesis），所以暫不 implements。目前只有 TwinStrike 有"
+  },
+  {
+   "id": "TEST-AUDIT",
+   "kind": "audit",
+   "implements": [
+    "RULE-GAME-DOCS",
+    "RULE-GAME-REPORTS",
+    "RULE-REPORT-FRESH",
+    "RULE-SPEC-CONSTANTS",
+    "RULE-SPEC-FAIRNESS",
+    "RULE-AF-ADAPTATION",
+    "RULE-SIM-PURITY",
+    "RULE-TEMPLATE-LEFTOVER",
+    "RULE-KB-CITED",
+    "RULE-ASSET-REGISTER"
+   ],
+   "facets": {
+    "topic": [
+     "process",
+     "fairness"
+    ]
+   },
+   "run": "node shared/tools/game-audit.mjs <Game>",
+   "cwd": ".",
+   "source": "shared/tools/game-audit.mjs",
+   "needs": [
+    "README.md",
+    "gdd",
+    "game/src/sim/sim.js"
+   ],
+   "cost": "cheap",
+   "fresh": null,
+   "note": "pre-commit 會跑；must 未過擋 commit，should 只警告"
+  },
+  {
+   "id": "TEST-INDEX",
+   "kind": "script",
+   "implements": [
+    "RULE-KB-CARDS",
+    "RULE-KB-CARD-SIZE"
+   ],
+   "facets": {
+    "topic": [
+     "process"
+    ]
+   },
+   "run": "node shared/tools/index-build.mjs --check",
+   "cwd": ".",
+   "source": "shared/tools/index-build.mjs",
+   "needs": [],
+   "cost": "cheap",
+   "fresh": null,
+   "note": "repo 層級（不分遊戲）：資產 manifest、知識卡、測試登錄是否有效且索引為最新；pre-commit 會跑"
+  },
+  {
+   "id": "TEST-DRAWCALL-REVIEW",
+   "kind": "review",
+   "implements": [
+    "RULE-DRAWCALL-2D",
+    "RULE-DRAWCALL-3D"
+   ],
+   "facets": {
+    "topic": [
+     "budget"
+    ]
+   },
+   "cwd": "<Game>/game",
+   "source": ".claude/skills/lite-skillgame-stack/templates/src/debug/drawCalls.js",
+   "needs": [
+    "game/src/debug/drawCalls.js"
+   ],
+   "cost": "human",
+   "fresh": null,
+   "checklists": [
+    {
+     "rule": "RULE-DRAWCALL-2D",
+     "checklist": "交付前截圖 DC 計數器"
+    },
+    {
+     "rule": "RULE-DRAWCALL-3D",
+     "checklist": "交付前截圖 DC 計數器"
+    }
+   ]
+  },
+  {
+   "id": "TEST-FX-FILTER-REVIEW",
+   "kind": "review",
+   "implements": [
+    "RULE-FX-FILTER"
+   ],
+   "facets": {
+    "topic": [
+     "juice",
+     "budget"
+    ]
+   },
+   "cwd": "<Game>/game",
+   "source": null,
+   "needs": [],
+   "cost": "human",
+   "fresh": null,
+   "checklists": [
+    {
+     "rule": "RULE-FX-FILTER",
+     "checklist": "grep 'filters' 與 DC 計數器"
+    }
+   ]
+  },
+  {
+   "id": "TEST-LEGAL-EXCLUDE-REVIEW",
+   "kind": "review",
+   "implements": [
+    "RULE-LEGAL-EXCLUDE-CHANCE"
+   ],
+   "facets": {
+    "topic": [
+     "legal"
+    ]
+   },
+   "cwd": "<Game>",
+   "source": null,
+   "needs": [
+    "gdd"
+   ],
+   "cost": "human",
+   "fresh": null,
+   "checklists": [
+    {
+     "rule": "RULE-LEGAL-EXCLUDE-CHANCE",
+     "checklist": "gdd 立項頁附檢核結果"
+    }
+   ]
+  },
+  {
+   "id": "TEST-ART-TABOO-REVIEW",
+   "kind": "review",
+   "implements": [
+    "RULE-ART-TW-TABOO"
+   ],
+   "facets": {
+    "topic": [
+     "art",
+     "theme"
+    ]
+   },
+   "cwd": "<Game>",
+   "source": null,
+   "needs": [
+    "art/manifest.json"
+   ],
+   "cost": "human",
+   "fresh": "contentHash",
+   "note": "審查結果存 evidence，綁資產 contentHash 與規則 reviewedAt（2026-10-21 決策 §5.5）",
+   "checklists": [
+    {
+     "rule": "RULE-ART-TW-TABOO",
+     "checklist": "美術驗收清單"
+    }
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "rule": "RULE-BUNDLE-SIZE",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-SIZE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-NO-RUNTIME-CDN",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-SIZE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-DRAWCALL-2D",
+   "level": "must",
+   "enforcement": "review",
+   "tests": [
+    "TEST-DRAWCALL-REVIEW"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-DRAWCALL-3D",
+   "level": "must",
+   "enforcement": "review",
+   "tests": [
+    "TEST-DRAWCALL-REVIEW"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SIM-PURITY",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SKILL-DOMINANCE",
+   "level": "should",
+   "enforcement": "script",
+   "tests": [
+    "TEST-SKILL-DOMINANCE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SKILL-BASELINE",
+   "level": "should",
+   "enforcement": "script",
+   "tests": [
+    "TEST-SKILL-BASELINE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SKILL-EVIDENCE",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-SKILL-EVIDENCE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SKILL-NOT-LUCK",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-SKILL-NOT-LUCK"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SKILL-BEATS-SIMPLE",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-SKILL-BEATS-SIMPLE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SKILL-CLOSENESS",
+   "level": "must",
+   "enforcement": "review",
+   "tests": [
+    "TEST-SKILL-CLOSENESS-REVIEW"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-CURVE-TREND",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-CURVE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-CURVE-LINEARITY",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-CURVE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-CURVE-PEAKS",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-CURVE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-CURVE-CLIFF",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-CURVE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-CURVE-FLOW",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-CURVE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-CURVE-BEATGRID",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-CURVE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-CURVE-PHRASE",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-CURVE"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-FX-FILTER",
+   "level": "should",
+   "enforcement": "review",
+   "tests": [
+    "TEST-FX-FILTER-REVIEW"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-LEGAL-EXCLUDE-CHANCE",
+   "level": "should",
+   "enforcement": "review",
+   "tests": [
+    "TEST-LEGAL-EXCLUDE-REVIEW"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-ART-TW-TABOO",
+   "level": "must",
+   "enforcement": "review",
+   "tests": [
+    "TEST-ART-TABOO-REVIEW"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-GAME-DOCS",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-GAME-REPORTS",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-AF-ADAPTATION",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-TEMPLATE-LEFTOVER",
+   "level": "should",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-REPORT-FRESH",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SPEC-CONSTANTS",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-SPEC-FAIRNESS",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-KB-CITED",
+   "level": "should",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-ASSET-REGISTER",
+   "level": "should",
+   "enforcement": "script",
+   "tests": [
+    "TEST-AUDIT"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-KB-CARDS",
+   "level": "must",
+   "enforcement": "script",
+   "tests": [
+    "TEST-INDEX"
+   ],
+   "covered": true
+  },
+  {
+   "rule": "RULE-KB-CARD-SIZE",
+   "level": "should",
+   "enforcement": "script",
+   "tests": [
+    "TEST-INDEX"
+   ],
+   "covered": true
+  }
+ ]
+}

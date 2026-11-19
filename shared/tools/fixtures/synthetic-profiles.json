@@ -1,0 +1,9 @@
+{
+  "about": "假想的 profile，只用來測「哪些規則與測試適用」（knowledge-base/decisions/2026-11-11-generality-backlog.md C4）。不是遊戲；facet 用的是目前詞彙裡的代理值，重點在 scriptedProgression。",
+  "profiles": {
+    "solitaire": { "schemaVersion": 1, "game": "Synthetic-solitaire", "genre": ["sort-puzzle"], "skillAxis": ["planning"], "renderer": ["2d"], "scriptedProgression": false, "source": ["original"], "jurisdiction": ["TW", "US-*"], "artStyle": ["procedural"] },
+    "word": { "schemaVersion": 1, "game": "Synthetic-word", "genre": ["block-puzzle"], "skillAxis": ["planning", "reaction"], "renderer": ["2d"], "scriptedProgression": false, "source": ["original"], "jurisdiction": ["TW", "US-*"], "artStyle": ["procedural"] },
+    "pool": { "schemaVersion": 1, "game": "Synthetic-pool", "genre": ["physics"], "skillAxis": ["aim", "planning"], "renderer": ["2d"], "scriptedProgression": false, "source": ["original"], "jurisdiction": ["TW", "US-*"], "artStyle": ["realistic"] },
+    "unanswered": { "schemaVersion": 1, "game": "Synthetic-unanswered", "genre": ["physics"], "skillAxis": ["aim"], "renderer": ["2d"], "source": ["original"], "jurisdiction": ["TW"], "artStyle": ["realistic"] }
+  }
+}

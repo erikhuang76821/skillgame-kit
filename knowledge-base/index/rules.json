@@ -1,0 +1,464 @@
+{
+  "schemaVersion": 1,
+  "about": "規則唯一事實來源（knowledge-base/decisions/2026-10-21-kb-asset-architecture.md §5.1）。把關程式經 shared/tools/rules.mjs 取值；遊戲例外寫在 <Game>/config/rules.overrides.json。",
+  "rules": [
+    {
+      "id": "RULE-BUNDLE-SIZE",
+      "category": "tech",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build" } },
+      "constraints": [
+        { "name": "target", "op": "<=", "value": 8388608, "unit": "byte", "overridePolicy": "with-reason" },
+        { "name": "hard", "op": "<=", "value": 10485760, "unit": "byte", "overridePolicy": "forbid" }
+      ],
+      "measurement": "npm run build 後 dist/ 內所有檔案原始大小總和（不計 gzip / brotli）；超過 target 即失敗",
+      "enforcement": { "type": "script", "ref": "<Game>/game/scripts/size-check.mjs（範本 templates/scripts/size-check.mjs）" },
+      "whyRef": "knowledge-base/04_tech-stack.md",
+      "howRef": ".claude/skills/lite-skillgame-stack/references/stack-and-budget.md",
+      "source": "CLAUDE.md、SwarmDuel/docs/size_budget.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-NO-RUNTIME-CDN",
+      "category": "tech",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build" } },
+      "constraints": [{ "name": "allowed", "check": "dist/ 的 js / css / html / json / svg 不得引用 cdn.jsdelivr.net、unpkg.com、cdnjs.cloudflare.com", "overridePolicy": "forbid" }],
+      "measurement": "size-check 掃描 dist/ 文字檔中的 CDN 網址",
+      "enforcement": { "type": "script", "ref": "<Game>/game/scripts/size-check.mjs（目前只警告）" },
+      "whyRef": "knowledge-base/04_tech-stack.md",
+      "howRef": ".claude/skills/lite-skillgame-stack/SKILL.md",
+      "source": "CLAUDE.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-DRAWCALL-2D",
+      "category": "tech",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "renderer": "2d" } },
+      "constraints": [{ "name": "base", "op": "<=", "value": 5, "unit": "draw-call", "overridePolicy": "with-reason" }],
+      "measurement": "開發模式 DC 計數器（src/debug/drawCalls.js）在基礎畫面的讀數；特效全開時寫明峰值",
+      "enforcement": { "type": "review", "checklist": "交付前截圖 DC 計數器" },
+      "whyRef": "knowledge-base/04_tech-stack.md",
+      "howRef": ".claude/skills/lite-skillgame-stack/references/drawcalls-assets.md",
+      "source": "CLAUDE.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-DRAWCALL-3D",
+      "category": "tech",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "renderer": "3d" } },
+      "constraints": [{ "name": "base", "op": "<=", "value": 9, "unit": "draw-call", "overridePolicy": "with-reason" }],
+      "measurement": "同 RULE-DRAWCALL-2D",
+      "enforcement": { "type": "review", "checklist": "交付前截圖 DC 計數器" },
+      "whyRef": "knowledge-base/04_tech-stack.md",
+      "howRef": ".claude/skills/lite-skillgame-stack/references/drawcalls-assets.md",
+      "source": "CLAUDE.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-SIM-PURITY",
+      "category": "fairness",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-source", "path": "game/src/sim/" } },
+      "constraints": [{ "name": "forbidden", "value": ["gsap", "pixi", "document", "window", "Math.random", "Date", "performance", "localStorage"], "unit": "identifier", "check": "sim/ 內（含 core/）的程式碼不得出現這些識別字；註解不算", "overridePolicy": "forbid" }],
+      "measurement": "game-audit 掃描 <Game>/game/src/sim/ 所有 .js / .mjs，去掉註解後以完整單字比對",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/01_skill-integrity.md",
+      "howRef": ".claude/skills/lite-skillgame-stack/SKILL.md",
+      "source": "CLAUDE.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-SKILL-DOMINANCE",
+      "category": "fairness",
+      "level": "should",
+      "scope": { "selector": { "kind": "game-build", "game": ["GateLane", "SwarmDuel", "TwinStrike"] } },
+      "constraints": [
+        { "name": "skillShare", "op": ">=", "value": 0.7, "unit": "ratio", "overridePolicy": "forbid" },
+        { "name": "topWinRate", "op": ">=", "value": 0.7, "unit": "ratio", "overridePolicy": "forbid" }
+      ],
+      "measurement": "node tools/skill-dominance.mjs 30：30 個種子 × ≥ 3 級技巧 bot；skillShare = 技巧等級佔分數變異比例，topWinRate = 最強對次強同種子勝率",
+      "enforcement": { "type": "script", "ref": "<Game>/game/tools/lib/dominance.mjs（範本 templates/tools/lib/dominance.mjs）" },
+      "whyRef": "knowledge-base/01_skill-integrity.md",
+      "howRef": "knowledge-base/12_genre-recipes.md",
+      "source": "knowledge-base/01_skill-integrity.md §4。2026-11-17 起只是現有三款的回歸警報（舊配方指標，不作跨品類或法律結論）；新遊戲改用 RULE-SKILL-EVIDENCE 等四條，見 knowledge-base/decisions/2026-11-11-skill-evidence.md §4",
+      "reviewedAt": "2026-11-17"
+    },
+    {
+      "id": "RULE-SKILL-BASELINE",
+      "category": "fairness",
+      "level": "should",
+      "scope": { "selector": { "kind": "game-build", "game": ["GateLane", "SwarmDuel", "TwinStrike"] } },
+      "constraints": [
+        { "name": "baselineRatio", "op": "<=", "value": 0.5, "unit": "ratio", "overridePolicy": "with-reason" }
+      ],
+      "measurement": "node tools/skill-dominance.mjs 30 --baseline：bots.mjs 匯出 BASELINES（每個都是一句話講得完、不需要精準時機或瞄準就能照做的固定規則，例如「選數字大的門」「站中間不動」），與技巧等級 bot 跑同一批種子；baselineRatio = 最好的基準策略平均分 ÷ 最強技巧等級平均分。沒有匯出 BASELINES 視為未驗證",
+      "enforcement": { "type": "script", "ref": "<Game>/game/tools/lib/dominance.mjs（範本 templates/tools/lib/dominance.mjs）" },
+      "whyRef": "knowledge-base/01_skill-integrity.md §4",
+      "howRef": "knowledge-base/01_skill-integrity.md §4",
+      "source": "GateLane N2 審查（2026-11-10）：一條「選數字大的門」規則 30 局贏 28 局、拿到 expert 60% 的分數，技巧佔比 91.4% 卻沒抓到。門檻是起始假設，有真人資料後再校。2026-11-17 起只是現有三款的回歸警報；新遊戲由 RULE-SKILL-CLOSENESS 的人工判定取代，沒有獨立門檻（knowledge-base/decisions/2026-11-11-skill-evidence.md §4）",
+      "reviewedAt": "2026-11-17"
+    },
+    {
+      "id": "RULE-SKILL-EVIDENCE",
+      "category": "fairness",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build" } },
+      "constraints": [
+        { "name": "alpha", "op": "<=", "value": 0.05, "unit": "probability", "overridePolicy": "forbid" },
+        { "name": "minQuestions", "op": ">=", "value": 30, "unit": "questions", "overridePolicy": "forbid" },
+        { "name": "complete", "check": "tools/strategies.mjs 恰好一個強策略、一個隨機策略、至少一條簡單策略，各寫明能看到什麼與能力限制；確認批次的結果已寫入 docs/skill_evidence_ledger.json，且對應目前的策略、sim、量法程式與門檻", "overridePolicy": "forbid" }
+      ],
+      "measurement": "node tools/skill-evidence.mjs --confirm：同一批由種子抽出的題目上，每個策略每題一個確定的結果；確認批次與調校批次分開，用過的批次只能原樣重跑。alpha 是符號檢定的顯著水準，minQuestions 是一批最少題數（要跑更多題在指令列給題數，不需要覆寫）；RULE-SKILL-NOT-LUCK 與 RULE-SKILL-BEATS-SIMPLE 用同一組數字。前提：每題一局、分數越高越好（名次制、低分制、多人賽尚未支援）",
+      "enforcement": { "type": "script", "ref": "<Game>/game/tools/lib/evidence.mjs（範本 templates/tools/lib/evidence.mjs）" },
+      "whyRef": "knowledge-base/01_skill-integrity.md §4",
+      "howRef": "knowledge-base/decisions/2026-11-11-skill-evidence.md §9",
+      "source": "knowledge-base/decisions/2026-11-11-skill-evidence.md（2026-11-11 定案）。alpha 與 minQuestions 是統計慣例，尚未跨玩法校準；有多款不同玩法的實測後再檢討",
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "id": "RULE-SKILL-NOT-LUCK",
+      "category": "fairness",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build" } },
+      "constraints": [
+        { "name": "beatsRandom", "check": "強策略對隨機策略：分出勝負的題目上，精確單側符號檢定的 p 不大於 RULE-SKILL-EVIDENCE 的 alpha，題數不少於其 minQuestions。程式只認策略檔標為 random 的那一個；它是否真的在合法而且會推進遊戲的動作裡均勻抽，由 RULE-SKILL-CLOSENESS 的人工審查核對", "overridePolicy": "forbid" }
+      ],
+      "measurement": "node tools/skill-evidence.mjs --confirm 的同題配對結果；平手不進檢定，但平手率一律報告",
+      "enforcement": { "type": "script", "ref": "<Game>/game/tools/lib/evidence.mjs（範本 templates/tools/lib/evidence.mjs）" },
+      "whyRef": "knowledge-base/01_skill-integrity.md §4",
+      "howRef": "knowledge-base/decisions/2026-11-11-skill-evidence.md §9",
+      "source": "knowledge-base/decisions/2026-11-11-skill-evidence.md（2026-11-11 定案）",
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "id": "RULE-SKILL-BEATS-SIMPLE",
+      "category": "fairness",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build" } },
+      "constraints": [
+        { "name": "beatsEverySimple", "check": "強策略對每一條事先凍結的簡單策略：分出勝負的題目上，精確單側符號檢定的 p 不大於 RULE-SKILL-EVIDENCE 的 alpha，題數不少於其 minQuestions。每一條都要成立。程式只認策略檔標為 simple 的那幾條；它們是否事先選定、是否真的不需要技巧，由 RULE-SKILL-CLOSENESS 的人工審查核對", "overridePolicy": "forbid" }
+      ],
+      "measurement": "node tools/skill-evidence.mjs --confirm 的同題配對結果；簡單策略是新手聽一句話就能照做、不需要精準時機或瞄準的規則",
+      "enforcement": { "type": "script", "ref": "<Game>/game/tools/lib/evidence.mjs（範本 templates/tools/lib/evidence.mjs）" },
+      "whyRef": "knowledge-base/01_skill-integrity.md §4",
+      "howRef": "knowledge-base/decisions/2026-11-11-skill-evidence.md §9",
+      "source": "knowledge-base/decisions/2026-11-11-skill-evidence.md（2026-11-11 定案）",
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "id": "RULE-SKILL-CLOSENESS",
+      "category": "fairness",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build" } },
+      "constraints": [
+        { "name": "judged", "check": "報告列出每條簡單策略拿到強策略多少分數、多少題沒輸、平手率；由人判定「不靠判斷也能玩到接近強策略」是否可接受，核准或退回都要寫理由。沒有通過線", "overridePolicy": "forbid" },
+        { "name": "strategiesReviewed", "check": "程式查不到的三件事由人核對：強策略沒有看到玩家看不到的資訊；隨機策略在合法而且會推進遊戲的動作裡均勻抽（動作集合與排除理由有寫明）；簡單策略是新手聽一句話就能照做、不需要精準時機或瞄準的規則，而且是看結果之前就選定的", "overridePolicy": "forbid" }
+      ],
+      "measurement": "docs/skill_evidence_report.md 的「簡單策略的接近程度」一節",
+      "enforcement": { "type": "review", "checklist": "核准人看過確認批次的報告、docs/skill_evidence_ledger.json（用了幾批、各批結果）與 tools/strategies.mjs 的策略定義，寫下接受或退回的理由" },
+      "whyRef": "knowledge-base/01_skill-integrity.md §4",
+      "howRef": "knowledge-base/decisions/2026-11-11-skill-evidence.md §4",
+      "source": "knowledge-base/decisions/2026-11-11-skill-evidence.md（2026-11-11 定案）。檢定通過不代表遊戲夠深：大量平手、或簡單策略分數很接近時檢定仍會過，所以另由人判定",
+      "reviewedAt": "2026-11-11"
+    },
+    {
+      "id": "RULE-CURVE-TREND",
+      "category": "balance",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "scriptedProgression": true } },
+      "constraints": [{ "name": "rho", "op": ">=", "value": 0.6, "unit": "spearman", "overridePolicy": "with-reason" }],
+      "measurement": "主段落逐單位 DI 對時間的 Spearman ρ（tools/playtest.mjs）",
+      "enforcement": { "type": "script", "ref": "TwinStrike/game/tools/playtest.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md §4 D2",
+      "howRef": "knowledge-base/16_difficulty-curve.md §5",
+      "source": "knowledge-base/16_difficulty-curve.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-CURVE-LINEARITY",
+      "category": "balance",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "scriptedProgression": true } },
+      "constraints": [{ "name": "r2", "op": ">=", "value": 0.5, "unit": "r-squared", "overridePolicy": "with-reason" }],
+      "measurement": "主段落 DI 對時間的線性擬合 R²（tools/playtest.mjs）",
+      "enforcement": { "type": "script", "ref": "TwinStrike/game/tools/playtest.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md §4 D3",
+      "howRef": "knowledge-base/16_difficulty-curve.md §5",
+      "source": "knowledge-base/16_difficulty-curve.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-CURVE-PEAKS",
+      "category": "balance",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "scriptedProgression": true } },
+      "constraints": [{ "name": "tolerance", "op": "<=", "value": 0.05, "unit": "DI", "overridePolicy": "with-reason" }],
+      "measurement": "每個主段落的 DI 高峰 ≥ 前一段高峰 − tolerance（tools/playtest.mjs）",
+      "enforcement": { "type": "script", "ref": "TwinStrike/game/tools/playtest.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md §4 D4",
+      "howRef": "knowledge-base/16_difficulty-curve.md §2.2",
+      "source": "knowledge-base/16_difficulty-curve.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-CURVE-CLIFF",
+      "category": "balance",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "scriptedProgression": true } },
+      "constraints": [{ "name": "maxDropPp", "op": "<=", "value": 12, "unit": "percentage-point", "overridePolicy": "with-reason" }],
+      "measurement": "一般玩家（humanBots regular）相鄰主段落命中率下降幅度（tools/playtest.mjs、tools/difficulty-curve.mjs）",
+      "enforcement": { "type": "script", "ref": "TwinStrike/game/tools/playtest.mjs、difficulty-curve.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md §4 D5",
+      "howRef": "knowledge-base/16_difficulty-curve.md §3",
+      "source": "knowledge-base/16_difficulty-curve.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-CURVE-FLOW",
+      "category": "balance",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "scriptedProgression": true } },
+      "constraints": [
+        { "name": "min", "op": ">=", "value": 0.9, "unit": "hit-rate", "overridePolicy": "with-reason" },
+        { "name": "max", "op": "<=", "value": 0.99, "unit": "hit-rate", "overridePolicy": "with-reason" }
+      ],
+      "measurement": "一般玩家（humanBots regular）每個主段落的命中率（tools/playtest.mjs）",
+      "enforcement": { "type": "script", "ref": "TwinStrike/game/tools/playtest.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md §4 D6",
+      "howRef": "knowledge-base/16_difficulty-curve.md §2.3",
+      "source": "knowledge-base/16_difficulty-curve.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-CURVE-BEATGRID",
+      "category": "balance",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "genre": "rhythm", "scriptedProgression": true } },
+      "constraints": [{ "name": "onGrid", "check": "所有目標都在拍點或分拍上（節奏類）", "overridePolicy": "with-reason" }],
+      "measurement": "譜面只用合法格位（TwinStrike 為八分音格，由建構保證）",
+      "enforcement": { "type": "script", "ref": "TwinStrike/game/tools/playtest.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md §4 D7",
+      "howRef": "knowledge-base/12_genre-recipes.md §1",
+      "source": "knowledge-base/16_difficulty-curve.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-CURVE-PHRASE",
+      "category": "balance",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-build", "genre": "rhythm", "scriptedProgression": true } },
+      "constraints": [{ "name": "multipleOf", "op": "==", "value": 4, "unit": "bar", "overridePolicy": "with-reason" }],
+      "measurement": "主要段落的小節數為此值的倍數（tools/playtest.mjs）",
+      "enforcement": { "type": "script", "ref": "TwinStrike/game/tools/playtest.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md §4 D8",
+      "howRef": "knowledge-base/16_difficulty-curve.md §2.1",
+      "source": "knowledge-base/16_difficulty-curve.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-FX-FILTER",
+      "category": "tech",
+      "level": "should",
+      "scope": { "selector": { "kind": "game-build" } },
+      "constraints": [{ "name": "allowed", "op": "==", "value": true, "unit": "bool", "overridePolicy": "with-reason" }],
+      "measurement": "Pixi filter 是否允許使用（只在作用期間掛上、集中在一個頂層 container）",
+      "enforcement": { "type": "review", "checklist": "grep 'filters' 與 DC 計數器" },
+      "whyRef": "knowledge-base/05_juice-and-feel.md",
+      "howRef": ".claude/skills/lite-skillgame-stack/references/juice.md",
+      "source": "CLAUDE.md 已知覆寫表",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-LEGAL-EXCLUDE-CHANCE",
+      "category": "legal",
+      "level": "should",
+      "jurisdiction": ["US-*", "TW"],
+      "scope": { "selector": { "kind": "game-design" } },
+      "constraints": [{ "name": "excluded", "check": "結果主要由機率或營運商設定決定者、傳統博弈形式（老虎機、撲克、麻將、牌戲）不做", "overridePolicy": "forbid" }],
+      "measurement": "立項時依排除標準逐條檢核",
+      "enforcement": { "type": "review", "checklist": "gdd 立項頁附檢核結果" },
+      "whyRef": "knowledge-base/02_market-and-legal.md §4",
+      "howRef": "knowledge-base/01_skill-integrity.md",
+      "source": "knowledge-base/02_market-and-legal.md（非法律意見；上線前需法務）",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-ART-TW-TABOO",
+      "category": "art",
+      "level": "must",
+      "jurisdiction": ["TW"],
+      "scope": { "selector": { "kind": "art-asset" } },
+      "constraints": [{ "name": "taboo", "check": "不戴綠色頭飾；不用大面積純白 / 純黑；不用紅金大面積娛樂城視覺；不出現錢幣、骰子、轉盤、「倍」「爆分」；不做神明、招財貓", "overridePolicy": "forbid" }],
+      "measurement": "每張生成圖人工驗收",
+      "enforcement": { "type": "review", "checklist": "美術驗收清單" },
+      "whyRef": "SwarmDuel/knowledge/themes/tw-themes.md §4–5",
+      "howRef": "TwinStrike/gdd/02_art_spec.md §1",
+      "source": "SwarmDuel/knowledge/themes/tw-themes.md",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-GAME-DOCS",
+      "category": "process",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-folder" } },
+      "constraints": [
+        { "name": "required", "value": ["README.md", "gdd/03_skill_integrity.md", "gdd/05_game_spec.md", "gdd/10_tech_constraints.md", "gdd/11_risks_open.md"], "unit": "path", "overridePolicy": "with-reason" },
+        { "name": "requiredIfScriptedProgression", "value": ["gdd/07_difficulty_curve.md", "docs/playtest_report.md"], "unit": "path", "check": "只在 game.profile.json 的 scriptedProgression 為 true 時必備；為 false 時不要求；沒填則 audit 不通過（資料待補）", "overridePolicy": "with-reason" },
+        { "name": "specSections", "value": ["§0", "§1", "§2", "§3", "§4", "§5", "§6", "§7", "§8", "§9", "§10", "§11", "§12"], "unit": "heading", "overridePolicy": "forbid" }
+      ],
+      "measurement": "game-audit 檢查 <Game>/ 下檔案存在且非空（難度文件與試玩報告依 game.profile.json 的 scriptedProgression）；gdd/05_game_spec.md 以 ## §N 標題涵蓋 game-spec-template 的每一節（§10 是公平檢查，不可挪作他用）",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/08_production-workflow.md §1",
+      "howRef": ".claude/skills/lite-skillgame-stack/references/bootstrap.md §0",
+      "source": "knowledge-base/08_production-workflow.md 步驟 3、6、6b",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-GAME-REPORTS",
+      "category": "process",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-folder" } },
+      "constraints": [{ "name": "noFail", "check": "docs/skill_evidence_report.md、docs/skill_dominance_report.md 與 docs/playtest_report.md（有產生的才檢查；skill_dominance_report.md 只記警告；哪些必備見 RULE-GAME-DOCS）由工具產生，且不含未通過標記（❌ / ✘ / FAIL）", "overridePolicy": "forbid" }],
+      "measurement": "game-audit 掃描報告文字",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md",
+      "howRef": ".claude/skills/lite-skillgame-stack/templates/tools/playtest.mjs",
+      "source": "knowledge-base/16_difficulty-curve.md D1–D8",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-AF-ADAPTATION",
+      "category": "fairness",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-design", "source": "ad-funnel" } },
+      "constraints": [{ "name": "everyItem", "check": "玩法規格引用 knowledge-base/ad-funnel/af-*.md 時，必須有 ## §13 改造對照，且該規格書「Skill Game 化改造」的每一條都有一列：採用（寫本作做法）或不採用（寫理由）", "overridePolicy": "forbid" }],
+      "measurement": "game-audit 比對 af 規格書的編號條目與 gdd/05 §13 表格的 | N | 列",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/16_ad-funnel-games.md §0 結論 3",
+      "howRef": "knowledge-base/ad-funnel/_TEMPLATE_spec.md",
+      "source": "GateLane 檢討（2026-10-21）：只復刻原作、跳過改造 → 技巧佔比僅 71%",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-TEMPLATE-LEFTOVER",
+      "category": "process",
+      "level": "should",
+      "scope": { "selector": { "kind": "game-folder" } },
+      "constraints": [{ "name": "rewrite", "value": ["src/sim/sim.js", "tools/bots.mjs", "tools/humanBots.mjs", "tools/playtest.mjs", "src/fx/feel.js", "src/audio/sfx.js"], "unit": "path", "overridePolicy": "with-reason" }],
+      "measurement": "game-audit 比對 <Game>/game/ 與 templates/ 的同名檔；內容相同 = 沿用示範遊戲的數值或規則（警告）",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/05_juice-and-feel.md、knowledge-base/14_audio.md",
+      "howRef": ".claude/skills/lite-skillgame-stack/references/bootstrap.md §1",
+      "source": "GateLane 檢討（2026-10-21）：feel.js / sfx.js 與範本完全相同",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-REPORT-FRESH",
+      "category": "process",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-folder" } },
+      "constraints": [{ "name": "matchVersion", "check": "docs/skill_evidence_report.md、docs/skill_dominance_report.md 與 docs/playtest_report.md（有產生的才檢查）標記的 sim 版本（「<id> vN」或「sim vN」）等於 sim.js 匯出的 GAME.version；技巧證據與 dominance 報告的 id 等於 GAME.id。技巧證據報告是否必備由 N5 的產出把關：N5 對所有遊戲要求它與確認紀錄（現有三款還沒有，N5 會擋住）。docs/skill_dominance_report.md 屬於只用於現有三款的舊規則，它的未通過或過期只記警告", "overridePolicy": "forbid" }],
+      "measurement": "game-audit 匯入 <Game>/game/src/sim/sim.js 讀 GAME，比對報告開頭的版本標記",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/16_difficulty-curve.md §6 調校流程第 3 步（影響結果的改動要重產報告）",
+      "howRef": ".claude/skills/lite-skillgame-stack/templates/tools/lib/dominance.mjs（toMarkdown 寫入 id 與版本）",
+      "source": "audit 第二版（2026-10-21）",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-SPEC-CONSTANTS",
+      "category": "process",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-folder" } },
+      "constraints": [
+        { "name": "match", "check": "gdd/05_game_spec.md 寫成 `NAME` = 數值、或表格「`NAME` | 數值」的常數，若 sim.js 有同名匯出（或 GAME / RULES 的同名欄位），數值必須相同", "overridePolicy": "forbid" },
+        { "name": "minMatched", "op": ">=", "value": 1, "unit": "constant", "overridePolicy": "with-reason" }
+      ],
+      "measurement": "game-audit 解析規格裡的反引號常數，匯入 sim.js 比對；找不到同名匯出的名稱（狀態欄位、事件名）略過",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": ".claude/skills/lite-skillgame-stack/references/game-spec-template.md（每節對應一段程式、數字對應同名常數）",
+      "howRef": "knowledge-base/08_production-workflow.md 步驟 3、5",
+      "source": "audit 第二版（2026-10-21）",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-SPEC-FAIRNESS",
+      "category": "fairness",
+      "level": "must",
+      "scope": { "selector": { "kind": "game-folder" } },
+      "constraints": [{ "name": "answers", "value": ["E1", "E2", "E3", "E4", "E5", "E6", "E7"], "unit": "row", "overridePolicy": "forbid" }],
+      "measurement": "gdd/05_game_spec.md §10 的表格每一列 | E# | 問題 | 本作答案 | 都要有答案（不得為空、—、待補、TODO）",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/01_skill-integrity.md §2 精髓七條",
+      "howRef": ".claude/skills/lite-skillgame-stack/references/game-spec-template.md §10",
+      "source": "audit 第二版（2026-10-21）",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-KB-CITED",
+      "category": "process",
+      "level": "should",
+      "scope": { "selector": { "kind": "game-folder" } },
+      "constraints": [{ "name": "stages", "value": [
+        { "stage": "立項", "pages": ["01_skill-integrity", "02_market-and-legal"] },
+        { "stage": "難度曲線", "pages": ["16_difficulty-curve"] },
+        { "stage": "手感 / 音效", "pages": ["05_juice-and-feel", "14_audio", "15_reference-games"] },
+        { "stage": "美術 / 資產", "pages": ["06_art-pipeline", "10_asset-library", "11_terrain-style-kit", "index/assets.json", "index/INDEX.md"] },
+        { "stage": "技術", "pages": ["04_tech-stack"] }
+      ], "unit": "stage", "overridePolicy": "with-reason" }],
+      "measurement": "<Game>/README.md 或 gdd/ 內，每個階段至少連到一頁 knowledge-base/（bootstrap.md §0 必讀清單的「讀過哪些頁寫進 README」）",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/README.md「開新遊戲：必讀路徑」",
+      "howRef": ".claude/skills/lite-skillgame-stack/references/bootstrap.md §0",
+      "source": "audit 第二版（2026-10-21）",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-ASSET-REGISTER",
+      "category": "art",
+      "level": "should",
+      "scope": { "selector": { "kind": "art-asset" } },
+      "constraints": [{ "name": "registered", "value": [".png", ".webp", ".jpg", ".jpeg", ".ktx2", ".ogg", ".mp3", ".m4a", ".wav"], "unit": "extension", "overridePolicy": "with-reason" }],
+      "measurement": "<Game>/game/src/assets/ 與 public/ 內這些副檔名的檔案，都要列在某個 art/manifest.json 的 files（本作的，或 shared/recipes/manifest.json）；未修改的範本複本以內容雜湊相同視為已登錄。中央索引 knowledge-base/index/assets.json 由 node shared/tools/index-build.mjs 從 manifest 產生",
+      "enforcement": { "type": "script", "ref": "shared/tools/game-audit.mjs" },
+      "whyRef": "knowledge-base/decisions/2026-10-21-kb-asset-architecture.md §5.3（manifest 是資產唯一來源）",
+      "howRef": "knowledge-base/10_asset-library.md",
+      "source": "audit 第二版（2026-10-21）",
+      "reviewedAt": "2026-10-21"
+    },
+    {
+      "id": "RULE-KB-CARDS",
+      "category": "process",
+      "level": "must",
+      "scope": { "selector": { "kind": "kb-page" } },
+      "constraints": [
+        { "name": "pageFields", "value": ["id", "kind", "topic", "reviewedAt"], "unit": "field", "overridePolicy": "forbid" },
+        { "name": "pageId", "value": "^KB-[a-z0-9-]+$", "unit": "regex", "overridePolicy": "forbid" },
+        { "name": "allH2Carded", "check": "有 front-matter 的頁，每個 H2 標題下第一個非空行都是 <!-- card: <頁 id>.<slug> … --> 或 <!-- card: skip; reason=… -->；H3 卡片只能顯式標記", "overridePolicy": "forbid" },
+        { "name": "facets", "check": "facet 值都在 shared/index/facets.json（或為 \"*\"）；kind 在 kbKinds；rules[] 都存在於本檔；卡片 id 全庫唯一", "overridePolicy": "forbid" }
+      ],
+      "measurement": "node shared/tools/index-build.mjs 讀 knowledge-base/**/*.md 中以 --- front-matter 開頭的頁，產生 knowledge-base/index/kb.json；沒有 front-matter 的頁不進索引（列為未分卡）",
+      "enforcement": { "type": "script", "ref": "shared/tools/kb-index.mjs（由 index-build 呼叫，--check 為 pre-commit 關卡）" },
+      "whyRef": "knowledge-base/decisions/2026-11-10-libraries-and-loop.md §3.1、§8",
+      "howRef": "knowledge-base/decisions/2026-11-10-libraries-and-loop.md §3.1",
+      "source": "2026-11-10 三庫分離決策 A 階段",
+      "reviewedAt": "2026-11-10"
+    },
+    {
+      "id": "RULE-KB-CARD-SIZE",
+      "category": "process",
+      "level": "should",
+      "scope": { "selector": { "kind": "kb-card" } },
+      "constraints": [{ "name": "maxTokens", "op": "<=", "value": 2000, "unit": "token-estimate", "overridePolicy": "with-reason" }],
+      "measurement": "卡片本文（標題下到下一張卡為止，不含已獨立成卡的 H3）的估計 token：CJK 與全形字元各算 1，其餘字元數 ÷ 4 無條件進位。超過只警告，由作者拆段或顯式切 H3，取用器不截斷卡片",
+      "enforcement": { "type": "script", "ref": "shared/tools/kb-index.mjs" },
+      "whyRef": "knowledge-base/decisions/2026-11-10-libraries-and-loop.md §8 第 1 項",
+      "howRef": "knowledge-base/decisions/2026-11-10-libraries-and-loop.md §8 第 1 項",
+      "source": "2026-11-10 三庫分離決策；門檻取節點脈絡預算的三分之一（實測 107 個 H2 中位數約 260、移出資產資料後最大約 1,800）",
+      "reviewedAt": "2026-11-10"
+    }
+  ]
+}

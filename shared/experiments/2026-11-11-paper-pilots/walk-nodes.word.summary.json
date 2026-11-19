@@ -1,0 +1,530 @@
+[
+ {
+  "node": "N0-kickoff",
+  "name": "立項",
+  "produces": [
+   "game.profile.json",
+   "README.md"
+  ],
+  "gate": {
+   "must": [
+    "RULE-LEGAL-EXCLUDE-CHANCE"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-LEGAL-EXCLUDE-CHANCE*(should)"
+  ],
+  "tests": [
+   "TEST-LEGAL-EXCLUDE-REVIEW:missing gdd"
+  ],
+  "cards": [
+   "KB-market-legal.exclusion [129t]",
+   "KB-market-legal.tw-law [234t]",
+   "KB-market-legal.us-law [293t]",
+   "KB-ad-funnel-games.adaptation-ranking [459t]",
+   "KB-ad-funnel-games.ads-legal [242t]",
+   "KB-ad-funnel-games.spec-index [1025t]",
+   "KB-ad-funnel-games.summary [414t]",
+   "KB-market-legal.contradictions [124t]",
+   "KB-market-legal.markets [323t]",
+   "KB-market-legal.watch-events [49t]",
+   "KB-reference-games.summary [405t]",
+   "KB-skill-integrity.derandomize [228t]",
+   "KB-skill-integrity.seven-essentials [257t]",
+   "KB-skill-integrity.three-questions [55t]",
+   "KB-ad-funnel-games.common-rules [433t]",
+   "KB-art-pipeline.licensing [69t]",
+   "KB-market-legal.checklist [206t]"
+  ],
+  "gaps": [],
+  "assets": 4
+ },
+ {
+  "node": "N1-derandomize",
+  "name": "去隨機化",
+  "produces": [
+   "gdd/03_skill_integrity.md"
+  ],
+  "gate": {
+   "must": []
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-SPEC-FAIRNESS(must)"
+  ],
+  "tests": [
+   "TEST-AUDIT:missing README.md+gdd+game/src/sim/sim.js"
+  ],
+  "cards": [
+   "KB-skill-integrity.derandomize [228t]",
+   "KB-skill-integrity.seven-essentials [257t]",
+   "KB-skill-integrity.three-questions [55t]",
+   "KB-design-patterns.fairness-patterns [302t]",
+   "KB-difficulty-curve.humanized-playtest [597t]",
+   "KB-input-fairness.anti-macro [175t]",
+   "KB-input-fairness.latency-calibration [201t]",
+   "KB-input-fairness.problems [449t]",
+   "KB-skill-integrity.dominance-test [660t]",
+   "KB-skill-integrity.match-verify [91t]",
+   "KB-tech-stack.determinism [385t]"
+  ],
+  "gaps": [],
+  "assets": 0
+ },
+ {
+  "node": "N2-spec",
+  "name": "玩法規格（含改編題改造對照）",
+  "produces": [
+   "gdd/05_game_spec.md",
+   "gdd/10_tech_constraints.md",
+   "gdd/11_risks_open.md"
+  ],
+  "gate": {
+   "must": [
+    "RULE-SPEC-FAIRNESS",
+    "RULE-AF-ADAPTATION"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-GAME-DOCS(must)",
+   "RULE-SPEC-CONSTANTS(must)",
+   "RULE-SPEC-FAIRNESS*(must)"
+  ],
+  "tests": [
+   "TEST-AUDIT:missing README.md+gdd+game/src/sim/sim.js"
+  ],
+  "cards": [
+   "KB-skill-integrity.seven-essentials [257t]",
+   "KB-ad-funnel-games.common-rules [433t]",
+   "KB-genre-recipes.common [158t]",
+   "KB-genre-recipes.other-genres [275t]",
+   "KB-input-fairness.anti-macro [175t]",
+   "KB-input-fairness.latency-calibration [201t]",
+   "KB-input-fairness.problems [449t]",
+   "KB-input-fairness.usage [131t]",
+   "KB-ad-funnel-games.adaptation-ranking [459t]",
+   "KB-ad-funnel-games.ads-legal [242t]",
+   "KB-ad-funnel-games.spec-index [1025t]",
+   "KB-ad-funnel-games.summary [414t]",
+   "KB-design-patterns.borrowable-rules [99t]",
+   "KB-design-patterns.fairness-patterns [302t]",
+   "KB-design-patterns.rule-card-index [1160t]",
+   "KB-design-patterns.scoring [92t]",
+   "KB-design-patterns.session-length [78t]",
+   "KB-difficulty-curve.humanized-playtest [597t]",
+   "KB-market-legal.contradictions [124t]",
+   "KB-market-legal.markets [323t]",
+   "KB-market-legal.watch-events [49t]",
+   "KB-reference-games.summary [405t]",
+   "KB-skill-integrity.dominance-test [660t]",
+   "KB-skill-integrity.match-verify [91t]",
+   "KB-tech-stack.determinism [385t]",
+   "KB-skill-integrity.derandomize [228t]",
+   "KB-skill-integrity.scoring [96t]",
+   "KB-skill-integrity.three-questions [55t]"
+  ],
+  "gaps": [
+   {
+    "facet": "source",
+    "value": "original",
+    "level": "none",
+    "note": "沒有任何卡片涵蓋 source=original"
+   },
+   {
+    "facet": "genre",
+    "value": "block-puzzle",
+    "level": "generic-only",
+    "note": "沒有 genre=block-puzzle 專屬的卡片，只有通用（\"*\"）卡片"
+   }
+  ],
+  "assets": 0
+ },
+ {
+  "node": "N3-scaffold",
+  "name": "起手（複製範本）",
+  "produces": [
+   "game/package.json"
+  ],
+  "gate": {
+   "must": [],
+   "tests": [
+    "TEST-UNIT"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [],
+  "tests": [],
+  "cards": [
+   "KB-genre-recipes.common [158t]",
+   "KB-genre-recipes.other-genres [275t]",
+   "KB-terrain-style-kit.reference-impl [1602t]"
+  ],
+  "gaps": [],
+  "assets": 0
+ },
+ {
+  "node": "N4-sim",
+  "name": "確定性 sim、bots、golden",
+  "produces": [
+   "game/src/sim/sim.js",
+   "game/test/determinism.test.mjs",
+   "game/tools/bots.mjs"
+  ],
+  "gate": {
+   "must": [
+    "RULE-SIM-PURITY",
+    "RULE-SPEC-CONSTANTS"
+   ],
+   "tests": [
+    "TEST-UNIT"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-SIM-PURITY*(must)",
+   "RULE-SPEC-CONSTANTS*(must)"
+  ],
+  "tests": [
+   "TEST-AUDIT:missing README.md+gdd+game/src/sim/sim.js"
+  ],
+  "cards": [
+   "KB-tech-stack.determinism [385t]",
+   "KB-design-patterns.fairness-patterns [302t]",
+   "KB-difficulty-curve.humanized-playtest [597t]",
+   "KB-genre-recipes.common [158t]",
+   "KB-genre-recipes.other-genres [275t]",
+   "KB-input-fairness.anti-macro [175t]",
+   "KB-input-fairness.latency-calibration [201t]",
+   "KB-input-fairness.problems [449t]",
+   "KB-input-fairness.usage [131t]",
+   "KB-skill-integrity.dominance-test [660t]",
+   "KB-skill-integrity.match-verify [91t]",
+   "KB-terrain-style-kit.reference-impl [1602t]",
+   "KB-tech-stack.layering [228t]",
+   "KB-tech-stack.hard-limits [119t]",
+   "KB-tech-stack.whitelist [259t]"
+  ],
+  "gaps": [
+   {
+    "facet": "genre",
+    "value": "block-puzzle",
+    "level": "generic-only",
+    "note": "沒有 genre=block-puzzle 專屬的卡片，只有通用（\"*\"）卡片"
+   }
+  ],
+  "assets": 0
+ },
+ {
+  "node": "N5-tune",
+  "name": "技巧主導與難度曲線",
+  "produces": [
+   "docs/skill_dominance_report.md",
+   "docs/playtest_report.md",
+   "gdd/07_difficulty_curve.md"
+  ],
+  "gate": {
+   "must": [
+    "RULE-SKILL-DOMINANCE",
+    "RULE-SKILL-BASELINE",
+    "RULE-CURVE-*"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-SKILL-DOMINANCE*(must)",
+   "RULE-SKILL-BASELINE*(should)",
+   "RULE-CURVE-TREND*(must)",
+   "RULE-CURVE-LINEARITY*(must)",
+   "RULE-CURVE-PEAKS*(must)",
+   "RULE-CURVE-CLIFF*(must)",
+   "RULE-CURVE-FLOW*(must)"
+  ],
+  "tests": [
+   "TEST-CURVE:missing game/tools/humanBots.mjs+game/tools/playtest.mjs",
+   "TEST-SKILL-BASELINE:missing game/tools/bots.mjs+game/tools/skill-dominance.mjs+game/tools/lib/dominance.mjs",
+   "TEST-SKILL-DOMINANCE:missing game/tools/bots.mjs+game/tools/skill-dominance.mjs"
+  ],
+  "cards": [
+   "KB-skill-integrity.dominance-test [660t]",
+   "KB-difficulty-curve.gates [360t]",
+   "KB-difficulty-curve.checklist [174t]",
+   "KB-difficulty-curve.design-rules [802t]",
+   "KB-difficulty-curve.humanized-playtest [597t]",
+   "KB-difficulty-curve.other-genres [241t]",
+   "KB-difficulty-curve.tuning [470t]",
+   "KB-difficulty-curve.core-idea [299t]"
+  ],
+  "gaps": [
+   {
+    "facet": "genre",
+    "value": "block-puzzle",
+    "level": "generic-only",
+    "note": "沒有 genre=block-puzzle 專屬的卡片，只有通用（\"*\"）卡片"
+   }
+  ],
+  "assets": 0
+ },
+ {
+  "node": "N6-art",
+  "name": "美術：生成、審查、登錄",
+  "produces": [
+   "art/",
+   "game/src/assets/"
+  ],
+  "gate": {
+   "must": [
+    "RULE-ASSET-REGISTER",
+    "RULE-ART-TW-TABOO"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-ART-TW-TABOO*(must)",
+   "RULE-ASSET-REGISTER*(should)"
+  ],
+  "tests": [
+   "TEST-AUDIT:missing README.md+gdd+game/src/sim/sim.js",
+   "TEST-ART-TABOO-REVIEW:missing art/manifest.json"
+  ],
+  "cards": [
+   "KB-asset-library.how-to [376t]",
+   "KB-asset-library.gaps-lessons [1213t]",
+   "KB-art-pipeline.generation [476t]",
+   "KB-art-pipeline.licensing [69t]",
+   "KB-art-pipeline.other-assets [98t]",
+   "KB-juice-feel.spine [174t]",
+   "KB-terrain-style-kit.acceptance [271t]",
+   "KB-terrain-style-kit.how-to [165t]",
+   "KB-themes-liveops.skin-selection [217t]",
+   "KB-terrain-style-kit.3d-variants [500t]",
+   "KB-terrain-style-kit.params [346t]",
+   "KB-terrain-style-kit.prompt-v1 [717t]",
+   "KB-art-pipeline.pitfalls [167t]",
+   "KB-reference-games.borrow-avoid [1118t]",
+   "KB-themes-liveops.localization [53t]"
+  ],
+  "gaps": [
+   {
+    "facet": "artStyle",
+    "value": "procedural",
+    "level": "none",
+    "note": "沒有任何卡片涵蓋 artStyle=procedural"
+   }
+  ],
+  "assets": 5
+ },
+ {
+  "node": "N7-feel",
+  "name": "手感、音效、UI",
+  "produces": [
+   "game/src/fx/feel.js",
+   "game/src/audio/sfx.js",
+   "game/src/ui/"
+  ],
+  "gate": {
+   "must": [
+    "RULE-FX-FILTER",
+    "RULE-TEMPLATE-LEFTOVER"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-FX-FILTER*(should)",
+   "RULE-TEMPLATE-LEFTOVER*(should)"
+  ],
+  "tests": [
+   "TEST-AUDIT:missing README.md+gdd+game/src/sim/sim.js",
+   "TEST-FX-FILTER-REVIEW:ok"
+  ],
+  "cards": [
+   "KB-juice-feel.effects-cost [318t]",
+   "KB-audio.architecture [210t]",
+   "KB-audio.mixing [162t]",
+   "KB-audio.recipes [236t]",
+   "KB-juice-feel.fallback-a11y [123t]",
+   "KB-juice-feel.gsap [398t]",
+   "KB-juice-feel.spine [174t]",
+   "KB-juice-feel.tuning [58t]",
+   "KB-tech-stack.portrait-rwd [178t]",
+   "KB-reference-games.audio [888t]",
+   "KB-reference-games.cutscenes [1173t]",
+   "KB-reference-games.ui-ux [699t]"
+  ],
+  "gaps": [
+   {
+    "facet": "genre",
+    "value": "block-puzzle",
+    "level": "generic-only",
+    "note": "沒有 genre=block-puzzle 專屬的卡片，只有通用（\"*\"）卡片"
+   }
+  ],
+  "assets": 0
+ },
+ {
+  "node": "N8-budget",
+  "name": "包體與 Draw Call",
+  "produces": [],
+  "gate": {
+   "must": [
+    "RULE-BUNDLE-SIZE",
+    "RULE-NO-RUNTIME-CDN",
+    "RULE-DRAWCALL-*"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-BUNDLE-SIZE*(must)",
+   "RULE-NO-RUNTIME-CDN*(must)",
+   "RULE-DRAWCALL-2D*(must)"
+  ],
+  "tests": [
+   "TEST-SIZE:missing game/scripts/size-check.mjs",
+   "TEST-DRAWCALL-REVIEW:missing game/src/debug/drawCalls.js"
+  ],
+  "cards": [
+   "KB-tech-stack.hard-limits [119t]",
+   "KB-tech-stack.drawcalls [287t]",
+   "KB-tech-stack.bundle-budget [111t]",
+   "KB-tech-stack.whitelist [259t]",
+   "KB-tech-stack.determinism [385t]",
+   "KB-tech-stack.layering [228t]",
+   "KB-input-fairness.usage [131t]",
+   "KB-skill-integrity.match-verify [91t]"
+  ],
+  "gaps": [
+   {
+    "facet": "renderer",
+    "value": "2d",
+    "level": "generic-only",
+    "note": "沒有 renderer=2d 專屬的卡片，只有通用（\"*\"）卡片"
+   }
+  ],
+  "assets": 0
+ },
+ {
+  "node": "N9-human",
+  "name": "人工試玩（對照 bot）",
+  "produces": [
+   "playtest-data/"
+  ],
+  "gate": {
+   "must": [],
+   "tests": [
+    "TEST-HUMAN-PLAYTEST"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [],
+  "tests": [],
+  "cards": [
+   "KB-design-patterns.fairness-patterns [302t]",
+   "KB-difficulty-curve.checklist [174t]",
+   "KB-difficulty-curve.design-rules [802t]",
+   "KB-difficulty-curve.gates [360t]",
+   "KB-difficulty-curve.humanized-playtest [597t]",
+   "KB-difficulty-curve.other-genres [241t]",
+   "KB-difficulty-curve.tuning [470t]",
+   "KB-input-fairness.anti-macro [175t]",
+   "KB-input-fairness.latency-calibration [201t]",
+   "KB-input-fairness.problems [449t]",
+   "KB-skill-integrity.match-verify [91t]"
+  ],
+  "gaps": [],
+  "assets": 0
+ },
+ {
+  "node": "N10-release",
+  "name": "發布關卡（全量）",
+  "produces": [],
+  "gate": {
+   "must": [
+    "*"
+   ],
+   "tests": [
+    "TEST-UNIT"
+   ]
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [
+   "RULE-BUNDLE-SIZE*(must)",
+   "RULE-NO-RUNTIME-CDN*(must)",
+   "RULE-DRAWCALL-2D*(must)",
+   "RULE-SIM-PURITY*(must)",
+   "RULE-SKILL-DOMINANCE*(must)",
+   "RULE-SKILL-BASELINE*(should)",
+   "RULE-CURVE-TREND*(must)",
+   "RULE-CURVE-LINEARITY*(must)",
+   "RULE-CURVE-PEAKS*(must)",
+   "RULE-CURVE-CLIFF*(must)",
+   "RULE-CURVE-FLOW*(must)",
+   "RULE-FX-FILTER*(should)",
+   "RULE-LEGAL-EXCLUDE-CHANCE*(should)",
+   "RULE-ART-TW-TABOO*(must)",
+   "RULE-GAME-DOCS*(must)",
+   "RULE-GAME-REPORTS*(must)",
+   "RULE-TEMPLATE-LEFTOVER*(should)",
+   "RULE-REPORT-FRESH*(must)",
+   "RULE-SPEC-CONSTANTS*(must)",
+   "RULE-SPEC-FAIRNESS*(must)",
+   "RULE-KB-CITED*(should)",
+   "RULE-ASSET-REGISTER*(should)",
+   "RULE-KB-CARDS*(must)",
+   "RULE-KB-CARD-SIZE*(should)"
+  ],
+  "tests": [
+   "TEST-AUDIT:missing README.md+gdd+game/src/sim/sim.js",
+   "TEST-INDEX:ok",
+   "TEST-CURVE:missing game/tools/humanBots.mjs+game/tools/playtest.mjs",
+   "TEST-SIZE:missing game/scripts/size-check.mjs",
+   "TEST-SKILL-BASELINE:missing game/tools/bots.mjs+game/tools/skill-dominance.mjs+game/tools/lib/dominance.mjs",
+   "TEST-SKILL-DOMINANCE:missing game/tools/bots.mjs+game/tools/skill-dominance.mjs",
+   "TEST-ART-TABOO-REVIEW:missing art/manifest.json",
+   "TEST-DRAWCALL-REVIEW:missing game/src/debug/drawCalls.js",
+   "TEST-FX-FILTER-REVIEW:ok",
+   "TEST-LEGAL-EXCLUDE-REVIEW:missing gdd"
+  ],
+  "cards": [
+   "KB-skill-integrity.seven-essentials [257t]",
+   "KB-skill-integrity.dominance-test [660t]",
+   "KB-market-legal.exclusion [129t]",
+   "KB-tech-stack.hard-limits [119t]",
+   "KB-tech-stack.determinism [385t]",
+   "KB-tech-stack.drawcalls [287t]",
+   "KB-tech-stack.bundle-budget [111t]",
+   "KB-juice-feel.effects-cost [318t]",
+   "KB-asset-library.how-to [376t]",
+   "KB-asset-library.gaps-lessons [1213t]",
+   "KB-difficulty-curve.gates [360t]"
+  ],
+  "gaps": [],
+  "assets": 0
+ },
+ {
+  "node": "N11-feedback",
+  "name": "回饋到三庫",
+  "produces": [],
+  "gate": {
+   "must": []
+  },
+  "errors": [],
+  "warnings": [],
+  "rules": [],
+  "tests": [],
+  "cards": [],
+  "gaps": [],
+  "assets": 0
+ }
+]

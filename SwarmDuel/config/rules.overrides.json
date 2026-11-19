@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "game": "SwarmDuel",
+  "overrides": [
+    {
+      "rule": "RULE-FX-FILTER",
+      "constraint": "allowed",
+      "value": false,
+      "reason": "像素風：衝擊波改用 sprite 擴散環，不使用任何 filter",
+      "ref": "SwarmDuel/gdd/10_tech_constraints.md、SwarmDuel/docs/size_budget.md"
+    }
+  ]
+}

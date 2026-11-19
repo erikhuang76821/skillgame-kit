@@ -1,0 +1,3203 @@
+{
+ "generated": true,
+ "schemaVersion": 1,
+ "about": "產生物，禁止手改。來源：knowledge-base/ 各頁的 front-matter 與 <!-- card: … --> 標記，詞彙 shared/index/facets.json；重建：node shared/tools/index-build.mjs。",
+ "counts": {
+  "pages": 18,
+  "cards": 112,
+  "unindexed": 27,
+  "byKind": {
+   "gap": 4,
+   "lesson": 6,
+   "method": 51,
+   "principle": 14,
+   "recipe": 9,
+   "research": 28
+  },
+  "byTopic": {
+   "art": 20,
+   "audio": 8,
+   "budget": 5,
+   "design": 24,
+   "difficulty": 9,
+   "fairness": 16,
+   "input": 5,
+   "juice": 9,
+   "legal": 8,
+   "liveops": 2,
+   "market": 18,
+   "monetization": 1,
+   "process": 6,
+   "scoring": 4,
+   "tech": 15,
+   "theme": 4,
+   "ux": 7
+  }
+ },
+ "pages": [
+  {
+   "id": "KB-skill-integrity",
+   "path": "knowledge-base/01_skill-integrity.md",
+   "title": "01 Skill Integrity — 技巧遊戲的核心承諾",
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 6,
+   "skipped": 0
+  },
+  {
+   "id": "KB-market-legal",
+   "path": "knowledge-base/02_market-and-legal.md",
+   "title": "02 市場與法規（北美 / 台灣）",
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 7,
+   "skipped": 0
+  },
+  {
+   "id": "KB-design-patterns",
+   "path": "knowledge-base/03_design-patterns.md",
+   "title": "03 玩法規則庫與設計模式",
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 6,
+   "skipped": 0
+  },
+  {
+   "id": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "title": "04 技術框架 — 輕量 HTML5 Skill Game",
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "tech"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 9,
+   "skipped": 0
+  },
+  {
+   "id": "KB-juice-feel",
+   "path": "knowledge-base/05_juice-and-feel.md",
+   "title": "05 打擊感與手感（以算代貼）",
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 5,
+   "skipped": 0
+  },
+  {
+   "id": "KB-art-pipeline",
+   "path": "knowledge-base/06_art-pipeline.md",
+   "title": "06 美術管線 — AI 生圖到遊戲 sprite",
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 5,
+   "skipped": 0
+  },
+  {
+   "id": "KB-themes-liveops",
+   "path": "knowledge-base/07_themes-and-liveops.md",
+   "title": "07 題材、美術風格與活動檔期",
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "theme"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 4,
+   "skipped": 0
+  },
+  {
+   "id": "KB-production-workflow",
+   "path": "knowledge-base/08_production-workflow.md",
+   "title": "08 生產流程與工具 — 從點子到可玩原型",
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "process"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-22",
+   "cards": 4,
+   "skipped": 0
+  },
+  {
+   "id": "KB-asset-library",
+   "path": "knowledge-base/10_asset-library.md",
+   "title": "10 資產庫 — 圖像、特效、Prompt 與關鍵字索引",
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-ASSET-REGISTER"
+   ],
+   "reviewedAt": "2026-10-22",
+   "cards": 2,
+   "skipped": 4
+  },
+  {
+   "id": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "title": "11 地表設定集 — 共用美術規則＋生成提詞＋整合提詞",
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 8,
+   "skipped": 0
+  },
+  {
+   "id": "KB-genre-recipes",
+   "path": "knowledge-base/12_genre-recipes.md",
+   "title": "12 品類實作配方 — 節奏 / 時機、確定性物理",
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "design",
+     "tech"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 4,
+   "skipped": 0
+  },
+  {
+   "id": "KB-input-fairness",
+   "path": "knowledge-base/13_input-fairness.md",
+   "title": "13 輸入公平性 — 時間戳輸入、延遲校正、防巨集",
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "input",
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 5,
+   "skipped": 0
+  },
+  {
+   "id": "KB-audio",
+   "path": "knowledge-base/14_audio.md",
+   "title": "14 音效 — Web Audio 程式合成（0 bytes）",
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "audio"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 5,
+   "skipped": 0
+  },
+  {
+   "id": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "title": "15 參考遊戲拆解 — 三國奇兵 / 9527 星際遠征",
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "tech",
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 9,
+   "skipped": 0
+  },
+  {
+   "id": "KB-ad-funnel-games",
+   "path": "knowledge-base/16_ad-funnel-games.md",
+   "title": "16 廣告導流玩法 — 2025–2026 熱門素材的規格書",
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 6,
+   "skipped": 0
+  },
+  {
+   "id": "KB-difficulty-curve",
+   "path": "knowledge-base/16_difficulty-curve.md",
+   "title": "16 難度曲線設計與驗收規範",
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "difficulty"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 7,
+   "skipped": 0
+  },
+  {
+   "id": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "title": "17 遊戲設計原則（手感、節奏、回饋）",
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "cards": 9,
+   "skipped": 1
+  },
+  {
+   "id": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "title": "加乘門射擊跑道（Gate Lane Shooter：Last War: Survival / Evony 數字桶）",
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "design",
+     "market"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "cards": 11,
+   "skipped": 0
+  }
+ ],
+ "cards": [
+  {
+   "id": "KB-skill-integrity.three-questions",
+   "page": "KB-skill-integrity",
+   "path": "knowledge-base/01_skill-integrity.md",
+   "line": 13,
+   "end": 18,
+   "heading": [
+    "1. 每個系統都要回答的三個問題"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 55,
+   "hash": "sha256:bb5b49f8470ec9ce"
+  },
+  {
+   "id": "KB-skill-integrity.seven-essentials",
+   "page": "KB-skill-integrity",
+   "path": "knowledge-base/01_skill-integrity.md",
+   "line": 20,
+   "end": 33,
+   "heading": [
+    "2. 精髓七條（新遊戲直接沿用為檢查表）"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-SPEC-FAIRNESS"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 257,
+   "hash": "sha256:4c5b508946b79414"
+  },
+  {
+   "id": "KB-skill-integrity.derandomize",
+   "page": "KB-skill-integrity",
+   "path": "knowledge-base/01_skill-integrity.md",
+   "line": 35,
+   "end": 47,
+   "heading": [
+    "3. 去隨機化手法（把一般遊戲的隨機改成公平）"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 228,
+   "hash": "sha256:df4df22128f4fe17"
+  },
+  {
+   "id": "KB-skill-integrity.dominance-test",
+   "page": "KB-skill-integrity",
+   "path": "knowledge-base/01_skill-integrity.md",
+   "line": 49,
+   "end": 72,
+   "heading": [
+    "4. 證據：Skill Dominance 測試（上線門檻）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-SKILL-DOMINANCE",
+    "RULE-SKILL-BASELINE",
+    "RULE-SKILL-EVIDENCE",
+    "RULE-SKILL-NOT-LUCK",
+    "RULE-SKILL-BEATS-SIMPLE",
+    "RULE-SKILL-CLOSENESS"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 773,
+   "hash": "sha256:4481d33534102e16"
+  },
+  {
+   "id": "KB-skill-integrity.match-verify",
+   "page": "KB-skill-integrity",
+   "path": "knowledge-base/01_skill-integrity.md",
+   "line": 74,
+   "end": 83,
+   "heading": [
+    "5. 每局驗證流程"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "fairness",
+     "tech"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 91,
+   "hash": "sha256:6ad20c72884c4083"
+  },
+  {
+   "id": "KB-skill-integrity.scoring",
+   "page": "KB-skill-integrity",
+   "path": "knowledge-base/01_skill-integrity.md",
+   "line": 85,
+   "end": 92,
+   "heading": [
+    "6. 計分設計通則（來自規則卡交叉比對）"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "scoring"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 96,
+   "hash": "sha256:5bfb831edb03add4"
+  },
+  {
+   "id": "KB-market-legal.markets",
+   "page": "KB-market-legal",
+   "path": "knowledge-base/02_market-and-legal.md",
+   "line": 13,
+   "end": 24,
+   "heading": [
+    "1. 兩市場一頁對照"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 323,
+   "hash": "sha256:222c97db0262dd49"
+  },
+  {
+   "id": "KB-market-legal.us-law",
+   "page": "KB-market-legal",
+   "path": "knowledge-base/02_market-and-legal.md",
+   "line": 26,
+   "end": 40,
+   "heading": [
+    "2. 北美法規快查"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ],
+    "jurisdiction": [
+     "US-*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 293,
+   "hash": "sha256:ea16b07cfd7b7fff"
+  },
+  {
+   "id": "KB-market-legal.tw-law",
+   "page": "KB-market-legal",
+   "path": "knowledge-base/02_market-and-legal.md",
+   "line": 42,
+   "end": 53,
+   "heading": [
+    "3. 台灣法規快查"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ],
+    "jurisdiction": [
+     "TW"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 234,
+   "hash": "sha256:3273b8dd6639a2a0"
+  },
+  {
+   "id": "KB-market-legal.exclusion",
+   "page": "KB-market-legal",
+   "path": "knowledge-base/02_market-and-legal.md",
+   "line": 55,
+   "end": 63,
+   "heading": [
+    "4. 排除標準（什麼不算 Skill Game）"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ],
+    "jurisdiction": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-LEGAL-EXCLUDE-CHANCE"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 129,
+   "hash": "sha256:3dd296fa818b6920"
+  },
+  {
+   "id": "KB-market-legal.checklist",
+   "page": "KB-market-legal",
+   "path": "knowledge-base/02_market-and-legal.md",
+   "line": 65,
+   "end": 70,
+   "heading": [
+    "5. 新作設計清單"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "market",
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 206,
+   "hash": "sha256:0865449a1c0a6598"
+  },
+  {
+   "id": "KB-market-legal.watch-events",
+   "page": "KB-market-legal",
+   "path": "knowledge-base/02_market-and-legal.md",
+   "line": 72,
+   "end": 75,
+   "heading": [
+    "6. 需追蹤的時效事件（2026-10 之後）"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 49,
+   "hash": "sha256:991ae4b15a5e18b5"
+  },
+  {
+   "id": "KB-market-legal.contradictions",
+   "page": "KB-market-legal",
+   "path": "knowledge-base/02_market-and-legal.md",
+   "line": 77,
+   "end": 84,
+   "heading": [
+    "7. 已知資料矛盾（引用前注意）"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 124,
+   "hash": "sha256:177d56632d8947ee"
+  },
+  {
+   "id": "KB-design-patterns.rule-card-index",
+   "page": "KB-design-patterns",
+   "path": "knowledge-base/03_design-patterns.md",
+   "line": 13,
+   "end": 31,
+   "heading": [
+    "1. 規則卡索引（依技巧軸）"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1160,
+   "hash": "sha256:7db211c6d4214549"
+  },
+  {
+   "id": "KB-design-patterns.fairness-patterns",
+   "page": "KB-design-patterns",
+   "path": "knowledge-base/03_design-patterns.md",
+   "line": 33,
+   "end": 44,
+   "heading": [
+    "2. 公平 / 去運氣模式"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "fairness",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 302,
+   "hash": "sha256:daf59c4022c60b52"
+  },
+  {
+   "id": "KB-design-patterns.scoring",
+   "page": "KB-design-patterns",
+   "path": "knowledge-base/03_design-patterns.md",
+   "line": 46,
+   "end": 54,
+   "heading": [
+    "3. 計分公式慣例"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "scoring"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 92,
+   "hash": "sha256:443e91ade26d5d52"
+  },
+  {
+   "id": "KB-design-patterns.session-length",
+   "page": "KB-design-patterns",
+   "path": "knowledge-base/03_design-patterns.md",
+   "line": 56,
+   "end": 64,
+   "heading": [
+    "4. 局長基準"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "scoring",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 78,
+   "hash": "sha256:1e2de8a5542c5fbb"
+  },
+  {
+   "id": "KB-design-patterns.monetization",
+   "page": "KB-design-patterns",
+   "path": "knowledge-base/03_design-patterns.md",
+   "line": 66,
+   "end": 75,
+   "heading": [
+    "5. 變現模式"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "monetization"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 156,
+   "hash": "sha256:e812d3659fff2d3e"
+  },
+  {
+   "id": "KB-design-patterns.borrowable-rules",
+   "page": "KB-design-patterns",
+   "path": "knowledge-base/03_design-patterns.md",
+   "line": 77,
+   "end": 80,
+   "heading": [
+    "6. 跨市場可借用規則（knowledge/README 精選）"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 99,
+   "hash": "sha256:426113178448184b"
+  },
+  {
+   "id": "KB-tech-stack.hard-limits",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 14,
+   "end": 22,
+   "heading": [
+    "1. 硬指標"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "tech",
+     "budget"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-BUNDLE-SIZE",
+    "RULE-DRAWCALL-2D",
+    "RULE-DRAWCALL-3D",
+    "RULE-NO-RUNTIME-CDN"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 119,
+   "hash": "sha256:76539a7ba05550d5"
+  },
+  {
+   "id": "KB-tech-stack.whitelist",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 24,
+   "end": 39,
+   "heading": [
+    "2. 技術棧白名單（版本鎖確切值，不加 `^`）"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "tech"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 259,
+   "hash": "sha256:c7ce9e2fe7deb324"
+  },
+  {
+   "id": "KB-tech-stack.layering",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 41,
+   "end": 60,
+   "heading": [
+    "3. 分層與迴圈契約"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "tech"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 228,
+   "hash": "sha256:8e09d995e15fe893"
+  },
+  {
+   "id": "KB-tech-stack.determinism",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 62,
+   "end": 79,
+   "heading": [
+    "4. 確定性規則（跨引擎重播一致）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "tech",
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-SIM-PURITY"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 385,
+   "hash": "sha256:eddae327d3beaf72"
+  },
+  {
+   "id": "KB-tech-stack.drawcalls",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 81,
+   "end": 99,
+   "heading": [
+    "5. Draw Call 與資源管線"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "budget"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-DRAWCALL-2D",
+    "RULE-DRAWCALL-3D"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 287,
+   "hash": "sha256:88e8a79eb79de191"
+  },
+  {
+   "id": "KB-tech-stack.bundle-budget",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 101,
+   "end": 115,
+   "heading": [
+    "6. 包體預算範本（≤ 8 MB）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "budget"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-BUNDLE-SIZE"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 111,
+   "hash": "sha256:8a7aeb3bf5f019ff"
+  },
+  {
+   "id": "KB-tech-stack.portrait-rwd",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 117,
+   "end": 129,
+   "heading": [
+    "7. 手機直版 RWD 規格（SwarmDuel 實作，可沿用）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "ux"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 178,
+   "hash": "sha256:7575bbf085d1cb37"
+  },
+  {
+   "id": "KB-tech-stack.template",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 131,
+   "end": 138,
+   "heading": [
+    "8. 範本與起手"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "process"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 301,
+   "hash": "sha256:1733174d70e3d8d7"
+  },
+  {
+   "id": "KB-tech-stack.delivery-check",
+   "page": "KB-tech-stack",
+   "path": "knowledge-base/04_tech-stack.md",
+   "line": 140,
+   "end": 150,
+   "heading": [
+    "9. 交付前自檢"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "process"
+    ],
+    "genre": [
+     "*"
+    ],
+    "renderer": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 116,
+   "hash": "sha256:66a202f7abc61e04"
+  },
+  {
+   "id": "KB-juice-feel.effects-cost",
+   "page": "KB-juice-feel",
+   "path": "knowledge-base/05_juice-and-feel.md",
+   "line": 14,
+   "end": 30,
+   "heading": [
+    "1. 效果做法與成本"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-FX-FILTER"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 318,
+   "hash": "sha256:6f81f4db60da9fed"
+  },
+  {
+   "id": "KB-juice-feel.gsap",
+   "page": "KB-juice-feel",
+   "path": "knowledge-base/05_juice-and-feel.md",
+   "line": 32,
+   "end": 62,
+   "heading": [
+    "2. GSAP 必設參數"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 398,
+   "hash": "sha256:4639e9f08ba6d60d"
+  },
+  {
+   "id": "KB-juice-feel.fallback-a11y",
+   "page": "KB-juice-feel",
+   "path": "knowledge-base/05_juice-and-feel.md",
+   "line": 64,
+   "end": 73,
+   "heading": [
+    "3. 降級與無障礙"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice",
+     "ux"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 123,
+   "hash": "sha256:eb3d8458d3db14be"
+  },
+  {
+   "id": "KB-juice-feel.spine",
+   "page": "KB-juice-feel",
+   "path": "knowledge-base/05_juice-and-feel.md",
+   "line": 75,
+   "end": 83,
+   "heading": [
+    "4. Spine 要點（4.3）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice",
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 174,
+   "hash": "sha256:171fd4fea304863b"
+  },
+  {
+   "id": "KB-juice-feel.tuning",
+   "page": "KB-juice-feel",
+   "path": "knowledge-base/05_juice-and-feel.md",
+   "line": 85,
+   "end": 90,
+   "heading": [
+    "5. 調手感流程"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 58,
+   "hash": "sha256:8b7b5c7619c5d738"
+  },
+  {
+   "id": "KB-art-pipeline.sprite-contract",
+   "page": "KB-art-pipeline",
+   "path": "knowledge-base/06_art-pipeline.md",
+   "line": 13,
+   "end": 24,
+   "heading": [
+    "1. Sprite 契約（8 方向角色）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ],
+    "artStyle": [
+     "pixel"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 174,
+   "hash": "sha256:40495c9019a3681b"
+  },
+  {
+   "id": "KB-art-pipeline.generation",
+   "page": "KB-art-pipeline",
+   "path": "knowledge-base/06_art-pipeline.md",
+   "line": 26,
+   "end": 38,
+   "heading": [
+    "2. 生圖流程（v1.0，可重跑）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 476,
+   "hash": "sha256:ae80a73690fa4e66"
+  },
+  {
+   "id": "KB-art-pipeline.pitfalls",
+   "page": "KB-art-pipeline",
+   "path": "knowledge-base/06_art-pipeline.md",
+   "line": 40,
+   "end": 49,
+   "heading": [
+    "3. 踩過的坑"
+   ],
+   "kind": "lesson",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 167,
+   "hash": "sha256:67b6cfba07922c7e"
+  },
+  {
+   "id": "KB-art-pipeline.other-assets",
+   "page": "KB-art-pipeline",
+   "path": "knowledge-base/06_art-pipeline.md",
+   "line": 51,
+   "end": 59,
+   "heading": [
+    "4. 其他資產"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 98,
+   "hash": "sha256:79e61aac377618f0"
+  },
+  {
+   "id": "KB-art-pipeline.licensing",
+   "page": "KB-art-pipeline",
+   "path": "knowledge-base/06_art-pipeline.md",
+   "line": 61,
+   "end": 65,
+   "heading": [
+    "5. 授權"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art",
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 69,
+   "hash": "sha256:49463e985d07bc74"
+  },
+  {
+   "id": "KB-themes-liveops.skin-selection",
+   "page": "KB-themes-liveops",
+   "path": "knowledge-base/07_themes-and-liveops.md",
+   "line": 12,
+   "end": 21,
+   "heading": [
+    "1. 選皮流程"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "theme"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 217,
+   "hash": "sha256:9bc3e914c3ad6716"
+  },
+  {
+   "id": "KB-themes-liveops.theme-notes",
+   "page": "KB-themes-liveops",
+   "path": "knowledge-base/07_themes-and-liveops.md",
+   "line": 23,
+   "end": 31,
+   "heading": [
+    "2. 題材重點"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "theme"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 237,
+   "hash": "sha256:5877b84ec79affe3"
+  },
+  {
+   "id": "KB-themes-liveops.calendar",
+   "page": "KB-themes-liveops",
+   "path": "knowledge-base/07_themes-and-liveops.md",
+   "line": 33,
+   "end": 41,
+   "heading": [
+    "3. 活動檔期（2026 Q4–2027）"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "liveops"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 136,
+   "hash": "sha256:367bddfb4db82a13"
+  },
+  {
+   "id": "KB-themes-liveops.localization",
+   "page": "KB-themes-liveops",
+   "path": "knowledge-base/07_themes-and-liveops.md",
+   "line": 43,
+   "end": 46,
+   "heading": [
+    "4. 本地化成本（SwarmDuel 的經驗）"
+   ],
+   "kind": "lesson",
+   "facets": {
+    "topic": [
+     "theme",
+     "liveops"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 53,
+   "hash": "sha256:bdf975455b70ca5d"
+  },
+  {
+   "id": "KB-production-workflow.overview",
+   "page": "KB-production-workflow",
+   "path": "knowledge-base/08_production-workflow.md",
+   "line": 12,
+   "end": 28,
+   "heading": [
+    "1. 流程總覽"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "process"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-22",
+   "tokens": 875,
+   "hash": "sha256:4fd72b75df022c36"
+  },
+  {
+   "id": "KB-production-workflow.commands",
+   "page": "KB-production-workflow",
+   "path": "knowledge-base/08_production-workflow.md",
+   "line": 30,
+   "end": 59,
+   "heading": [
+    "2. 常用指令"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "process"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-22",
+   "tokens": 81,
+   "hash": "sha256:458c64cc59ef138e"
+  },
+  {
+   "id": "KB-production-workflow.tool-locations",
+   "page": "KB-production-workflow",
+   "path": "knowledge-base/08_production-workflow.md",
+   "line": 61,
+   "end": 76,
+   "heading": [
+    "3. Skill / 工具所在位置"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "process"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-22",
+   "tokens": 610,
+   "hash": "sha256:491ac9eb1eba9be1"
+  },
+  {
+   "id": "KB-production-workflow.bootstrap-prompt",
+   "page": "KB-production-workflow",
+   "path": "knowledge-base/08_production-workflow.md",
+   "line": 78,
+   "end": 81,
+   "heading": [
+    "4. 給其他 AI 的啟動提示詞"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "process"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-22",
+   "tokens": 23,
+   "hash": "sha256:0330d1a351484d8d"
+  },
+  {
+   "id": "KB-asset-library.how-to",
+   "page": "KB-asset-library",
+   "path": "knowledge-base/10_asset-library.md",
+   "line": 18,
+   "end": 30,
+   "heading": [
+    "1. 怎麼用"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-ASSET-REGISTER"
+   ],
+   "reviewedAt": "2026-10-22",
+   "tokens": 376,
+   "hash": "sha256:00904bb574105f57"
+  },
+  {
+   "id": "KB-asset-library.gaps-lessons",
+   "page": "KB-asset-library",
+   "path": "knowledge-base/10_asset-library.md",
+   "line": 355,
+   "end": 397,
+   "heading": [
+    "6. 缺口與生成教訓"
+   ],
+   "kind": "lesson",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-ASSET-REGISTER"
+   ],
+   "reviewedAt": "2026-10-22",
+   "tokens": 1218,
+   "hash": "sha256:43670d5c44bb347a"
+  },
+  {
+   "id": "KB-terrain-style-kit.how-to",
+   "page": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "line": 14,
+   "end": 26,
+   "heading": [
+    "0. 怎麼用"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 165,
+   "hash": "sha256:9992165be6c63149"
+  },
+  {
+   "id": "KB-terrain-style-kit.prompt-v1",
+   "page": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "line": 28,
+   "end": 69,
+   "heading": [
+    "1. 原版提詞（v1，使用者定稿，原文保留）"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 717,
+   "hash": "sha256:fb4a01bafeae5ce2"
+  },
+  {
+   "id": "KB-terrain-style-kit.diff-analysis",
+   "page": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "line": 71,
+   "end": 115,
+   "heading": [
+    "2. 差異分析：建議調整與補充"
+   ],
+   "kind": "lesson",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1544,
+   "hash": "sha256:806bfaabcdc23057"
+  },
+  {
+   "id": "KB-terrain-style-kit.prompt-v2",
+   "page": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "line": 117,
+   "end": 189,
+   "heading": [
+    "3. 修訂版提詞（v2：v1 ＋ 差異，仍只替換【】）"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1683,
+   "hash": "sha256:e9bba9185b9f7ec6"
+  },
+  {
+   "id": "KB-terrain-style-kit.params",
+   "page": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "line": 191,
+   "end": 213,
+   "heading": [
+    "4. 各遊戲參數表（彈性設計的核心：數值只放這裡）"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 346,
+   "hash": "sha256:09c991c846ca98ad"
+  },
+  {
+   "id": "KB-terrain-style-kit.3d-variants",
+   "page": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "line": 215,
+   "end": 227,
+   "heading": [
+    "5. 立體地圖面：依視角的變體"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 500,
+   "hash": "sha256:0a5d9b10f59541cd"
+  },
+  {
+   "id": "KB-terrain-style-kit.acceptance",
+   "page": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "line": 229,
+   "end": 244,
+   "heading": [
+    "6. ⑤ 驗收清單"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 271,
+   "hash": "sha256:a7575c01d5e4eb23"
+  },
+  {
+   "id": "KB-terrain-style-kit.reference-impl",
+   "page": "KB-terrain-style-kit",
+   "path": "knowledge-base/11_terrain-style-kit.md",
+   "line": 246,
+   "end": 285,
+   "heading": [
+    "7. 參考實作（範本內建，2026-10-19）"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "art",
+     "tech"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1602,
+   "hash": "sha256:71398303ce103a3f"
+  },
+  {
+   "id": "KB-genre-recipes.rhythm",
+   "page": "KB-genre-recipes",
+   "path": "knowledge-base/12_genre-recipes.md",
+   "line": 12,
+   "end": 30,
+   "heading": [
+    "1. 節奏 / 時機（太鼓、maimai、OFDP、Timberman、Blackout Bingo 塗記）"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "design",
+     "tech"
+    ],
+    "genre": [
+     "rhythm"
+    ],
+    "skillAxis": [
+     "timing"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 536,
+   "hash": "sha256:6d008d900919024c"
+  },
+  {
+   "id": "KB-genre-recipes.physics",
+   "page": "KB-genre-recipes",
+   "path": "knowledge-base/12_genre-recipes.md",
+   "line": 32,
+   "end": 61,
+   "heading": [
+    "2. 確定性物理（撞球、泡泡龍、冰球、彈珠）"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "design",
+     "tech"
+    ],
+    "genre": [
+     "physics"
+    ],
+    "skillAxis": [
+     "aim"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 891,
+   "hash": "sha256:3c1b432aaefa2595"
+  },
+  {
+   "id": "KB-genre-recipes.common",
+   "page": "KB-genre-recipes",
+   "path": "knowledge-base/12_genre-recipes.md",
+   "line": 63,
+   "end": 69,
+   "heading": [
+    "3. 共通做法（兩份配方都適用）"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "design",
+     "tech"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 158,
+   "hash": "sha256:f698ab559607ccb4"
+  },
+  {
+   "id": "KB-genre-recipes.other-genres",
+   "page": "KB-genre-recipes",
+   "path": "knowledge-base/12_genre-recipes.md",
+   "line": 71,
+   "end": 81,
+   "heading": [
+    "4. 其他品類的對應"
+   ],
+   "kind": "recipe",
+   "facets": {
+    "topic": [
+     "design",
+     "tech"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 275,
+   "hash": "sha256:12872c5bd14b400b"
+  },
+  {
+   "id": "KB-input-fairness.problems",
+   "page": "KB-input-fairness",
+   "path": "knowledge-base/13_input-fairness.md",
+   "line": 13,
+   "end": 25,
+   "heading": [
+    "1. 問題與對策"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "input",
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 449,
+   "hash": "sha256:2f604b474b06287d"
+  },
+  {
+   "id": "KB-input-fairness.usage",
+   "page": "KB-input-fairness",
+   "path": "knowledge-base/13_input-fairness.md",
+   "line": 27,
+   "end": 42,
+   "heading": [
+    "2. 用法（範本 `main.js`）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "input",
+     "tech"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 131,
+   "hash": "sha256:649fe5f098c75d9a"
+  },
+  {
+   "id": "KB-input-fairness.latency-calibration",
+   "page": "KB-input-fairness",
+   "path": "knowledge-base/13_input-fairness.md",
+   "line": 44,
+   "end": 53,
+   "heading": [
+    "3. 延遲校正的規則"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "input",
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 201,
+   "hash": "sha256:36847917f760a783"
+  },
+  {
+   "id": "KB-input-fairness.anti-macro",
+   "page": "KB-input-fairness",
+   "path": "knowledge-base/13_input-fairness.md",
+   "line": 55,
+   "end": 63,
+   "heading": [
+    "4. 防巨集 / 防腳本（伺服器風控用）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "input",
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 175,
+   "hash": "sha256:2a41e6b773e4ff5f"
+  },
+  {
+   "id": "KB-input-fairness.todo",
+   "page": "KB-input-fairness",
+   "path": "knowledge-base/13_input-fairness.md",
+   "line": 65,
+   "end": 70,
+   "heading": [
+    "5. 還沒做到的"
+   ],
+   "kind": "gap",
+   "facets": {
+    "topic": [
+     "input",
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 165,
+   "hash": "sha256:eb47868a6dfb1551"
+  },
+  {
+   "id": "KB-audio.architecture",
+   "page": "KB-audio",
+   "path": "knowledge-base/14_audio.md",
+   "line": 14,
+   "end": 23,
+   "heading": [
+    "1. 架構"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "audio"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 210,
+   "hash": "sha256:d0c1e07536b81178"
+  },
+  {
+   "id": "KB-audio.recipes",
+   "page": "KB-audio",
+   "path": "knowledge-base/14_audio.md",
+   "line": 25,
+   "end": 38,
+   "heading": [
+    "2. 配方表（起手值，跟 FEEL 一樣在檔案裡調）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "audio"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 236,
+   "hash": "sha256:721f1c3ff75a311e"
+  },
+  {
+   "id": "KB-audio.mixing",
+   "page": "KB-audio",
+   "path": "knowledge-base/14_audio.md",
+   "line": 40,
+   "end": 49,
+   "heading": [
+    "3. 混音原則"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "audio"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 162,
+   "hash": "sha256:54ca5da63fbceb51"
+  },
+  {
+   "id": "KB-audio.rhythm-clock",
+   "page": "KB-audio",
+   "path": "knowledge-base/14_audio.md",
+   "line": 51,
+   "end": 59,
+   "heading": [
+    "4. 節奏遊戲的時鐘對齊"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "audio"
+    ],
+    "genre": [
+     "rhythm"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 210,
+   "hash": "sha256:d8cd1d818a960c29"
+  },
+  {
+   "id": "KB-audio.todo",
+   "page": "KB-audio",
+   "path": "knowledge-base/14_audio.md",
+   "line": 61,
+   "end": 66,
+   "heading": [
+    "5. 還沒做到的"
+   ],
+   "kind": "gap",
+   "facets": {
+    "topic": [
+     "audio"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 79,
+   "hash": "sha256:9b67feda747b9446"
+  },
+  {
+   "id": "KB-reference-games.summary",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 15,
+   "end": 29,
+   "heading": [
+    "0. 一眼結論"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 395,
+   "hash": "sha256:54ffb4e1e7680e39"
+  },
+  {
+   "id": "KB-reference-games.tech-bundle",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 31,
+   "end": 70,
+   "heading": [
+    "1. 技術棧與包體"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "tech",
+     "budget"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1006,
+   "hash": "sha256:83af5129edfb3e04"
+  },
+  {
+   "id": "KB-reference-games.object-production",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 72,
+   "end": 137,
+   "heading": [
+    "2. 物件製作規範"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1786,
+   "hash": "sha256:36cdb4ad1917ec8e"
+  },
+  {
+   "id": "KB-reference-games.audio",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 139,
+   "end": 170,
+   "heading": [
+    "3. 音效應用"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "audio"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 888,
+   "hash": "sha256:8f630a5cd358166f"
+  },
+  {
+   "id": "KB-reference-games.cutscenes",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 172,
+   "end": 212,
+   "heading": [
+    "4. 過場與演出"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "ux",
+     "juice"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1173,
+   "hash": "sha256:e56855a897114470"
+  },
+  {
+   "id": "KB-reference-games.ui-ux",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 214,
+   "end": 233,
+   "heading": [
+    "5. UI/UX"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "ux"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 745,
+   "hash": "sha256:e0620122eb373cad"
+  },
+  {
+   "id": "KB-reference-games.borrow-avoid",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 235,
+   "end": 274,
+   "heading": [
+    "6. 可借用 / 要避開"
+   ],
+   "kind": "lesson",
+   "facets": {
+    "topic": [
+     "market",
+     "tech",
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1118,
+   "hash": "sha256:111402e14fca3117"
+  },
+  {
+   "id": "KB-reference-games.fairness-check",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 276,
+   "end": 290,
+   "heading": [
+    "7. 對照 skill game 公平性原則"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 424,
+   "hash": "sha256:f583881765a67a95"
+  },
+  {
+   "id": "KB-reference-games.unverified",
+   "page": "KB-reference-games",
+   "path": "knowledge-base/15_reference-games.md",
+   "line": 292,
+   "end": 304,
+   "heading": [
+    "8. 拿不到 / 未驗證"
+   ],
+   "kind": "gap",
+   "facets": {
+    "topic": [
+     "market",
+     "tech",
+     "art"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 398,
+   "hash": "sha256:925ca1671260bbc3"
+  },
+  {
+   "id": "KB-ad-funnel-games.summary",
+   "page": "KB-ad-funnel-games",
+   "path": "knowledge-base/16_ad-funnel-games.md",
+   "line": 13,
+   "end": 23,
+   "heading": [
+    "0. 一眼結論"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 414,
+   "hash": "sha256:12abab94ad8d52e5"
+  },
+  {
+   "id": "KB-ad-funnel-games.spec-index",
+   "page": "KB-ad-funnel-games",
+   "path": "knowledge-base/16_ad-funnel-games.md",
+   "line": 25,
+   "end": 53,
+   "heading": [
+    "1. 規格書索引"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 1025,
+   "hash": "sha256:2ead9e978391d999"
+  },
+  {
+   "id": "KB-ad-funnel-games.adaptation-ranking",
+   "page": "KB-ad-funnel-games",
+   "path": "knowledge-base/16_ad-funnel-games.md",
+   "line": 55,
+   "end": 70,
+   "heading": [
+    "2. 改成 skill game 的難易排序"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 459,
+   "hash": "sha256:23f04a640bea0db3"
+  },
+  {
+   "id": "KB-ad-funnel-games.common-rules",
+   "page": "KB-ad-funnel-games",
+   "path": "knowledge-base/16_ad-funnel-games.md",
+   "line": 72,
+   "end": 85,
+   "heading": [
+    "3. 共通規則（給新專案）"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "market",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-AF-ADAPTATION"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 433,
+   "hash": "sha256:a6a75a9af92693ba"
+  },
+  {
+   "id": "KB-ad-funnel-games.ads-legal",
+   "page": "KB-ad-funnel-games",
+   "path": "knowledge-base/16_ad-funnel-games.md",
+   "line": 87,
+   "end": 97,
+   "heading": [
+    "4. 投放與法規快查"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market",
+     "legal"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 242,
+   "hash": "sha256:922bbfcdfb5f46d3"
+  },
+  {
+   "id": "KB-ad-funnel-games.gaps",
+   "page": "KB-ad-funnel-games",
+   "path": "knowledge-base/16_ad-funnel-games.md",
+   "line": 99,
+   "end": 103,
+   "heading": [
+    "5. 缺口"
+   ],
+   "kind": "gap",
+   "facets": {
+    "topic": [
+     "market",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 95,
+   "hash": "sha256:b86c840ba8b3491d"
+  },
+  {
+   "id": "KB-difficulty-curve.core-idea",
+   "page": "KB-difficulty-curve",
+   "path": "knowledge-base/16_difficulty-curve.md",
+   "line": 14,
+   "end": 25,
+   "heading": [
+    "1. 核心觀念：設計和驗收是同一件事的兩面"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "difficulty"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 299,
+   "hash": "sha256:19caefe1fd4dff86"
+  },
+  {
+   "id": "KB-difficulty-curve.design-rules",
+   "page": "KB-difficulty-curve",
+   "path": "knowledge-base/16_difficulty-curve.md",
+   "line": 27,
+   "end": 64,
+   "heading": [
+    "2. 設計規範"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "difficulty"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 802,
+   "hash": "sha256:2373565987e8b9ed"
+  },
+  {
+   "id": "KB-difficulty-curve.humanized-playtest",
+   "page": "KB-difficulty-curve",
+   "path": "knowledge-base/16_difficulty-curve.md",
+   "line": 66,
+   "end": 95,
+   "heading": [
+    "3. 驗收：人性化自動試玩"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "difficulty",
+     "fairness"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 597,
+   "hash": "sha256:f7b0734bf167c131"
+  },
+  {
+   "id": "KB-difficulty-curve.gates",
+   "page": "KB-difficulty-curve",
+   "path": "knowledge-base/16_difficulty-curve.md",
+   "line": 97,
+   "end": 111,
+   "heading": [
+    "4. 驗收門檻（任一不過 → exit 1，不能上線）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "difficulty"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [
+    "RULE-CURVE-TREND",
+    "RULE-CURVE-LINEARITY",
+    "RULE-CURVE-PEAKS",
+    "RULE-CURVE-CLIFF",
+    "RULE-CURVE-FLOW",
+    "RULE-CURVE-BEATGRID",
+    "RULE-CURVE-PHRASE"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 360,
+   "hash": "sha256:919df101e361ddd2"
+  },
+  {
+   "id": "KB-difficulty-curve.tuning",
+   "page": "KB-difficulty-curve",
+   "path": "knowledge-base/16_difficulty-curve.md",
+   "line": 113,
+   "end": 136,
+   "heading": [
+    "5. 調校流程"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "difficulty"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 470,
+   "hash": "sha256:2ce5124027d873ca"
+  },
+  {
+   "id": "KB-difficulty-curve.other-genres",
+   "page": "KB-difficulty-curve",
+   "path": "knowledge-base/16_difficulty-curve.md",
+   "line": 138,
+   "end": 149,
+   "heading": [
+    "6. 套用到其他品類"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "difficulty"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 241,
+   "hash": "sha256:5b91bb22dea8274e"
+  },
+  {
+   "id": "KB-difficulty-curve.checklist",
+   "page": "KB-difficulty-curve",
+   "path": "knowledge-base/16_difficulty-curve.md",
+   "line": 151,
+   "end": 159,
+   "heading": [
+    "7. 給新遊戲的檢查清單"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "difficulty"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 174,
+   "hash": "sha256:084f9a5b1c4a7142"
+  },
+  {
+   "id": "KB-design-principles.excluded",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 20,
+   "end": 33,
+   "heading": [
+    "1. 不適用於 skill game 的原則（排除清單）"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 515,
+   "hash": "sha256:2f5b1c3b58472ac5"
+  },
+  {
+   "id": "KB-design-principles.risk-reward",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 35,
+   "end": 43,
+   "heading": [
+    "2. 核心：風險與報酬"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 430,
+   "hash": "sha256:1323dbe1f1b32451"
+  },
+  {
+   "id": "KB-design-principles.retry-pacing",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 45,
+   "end": 52,
+   "heading": [
+    "3. 難度、重試與節奏（技巧賽版）"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "difficulty",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 403,
+   "hash": "sha256:36f3f2a2afe2ec79"
+  },
+  {
+   "id": "KB-design-principles.praise-score",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 54,
+   "end": 59,
+   "heading": [
+    "4. 回饋、誇獎與計分呈現"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "design",
+     "scoring",
+     "ux"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 227,
+   "hash": "sha256:4442847a51cb43fc"
+  },
+  {
+   "id": "KB-design-principles.onboarding-time",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 61,
+   "end": 69,
+   "heading": [
+    "5. 導入與時間"
+   ],
+   "kind": "principle",
+   "facets": {
+    "topic": [
+     "ux",
+     "design"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 284,
+   "hash": "sha256:f7f92aa1d466d7d1"
+  },
+  {
+   "id": "KB-design-principles.hitstop-motion",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 71,
+   "end": 86,
+   "heading": [
+    "6. 手感：頓幀、受擊與動作"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice"
+    ],
+    "genre": [
+     "survivor",
+     "arena",
+     "shmup",
+     "lane-shooter",
+     "tower-defense",
+     "runner"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 408,
+   "hash": "sha256:df70e50c13a32056"
+  },
+  {
+   "id": "KB-design-principles.effects",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 88,
+   "end": 102,
+   "heading": [
+    "7. 特效：擊中標記、爆炸、震動、閃光"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 377,
+   "hash": "sha256:370a7ac3285b8abf"
+  },
+  {
+   "id": "KB-design-principles.audio-priority",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 104,
+   "end": 112,
+   "heading": [
+    "8. 音效：依影響度排優先序"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "audio"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 372,
+   "hash": "sha256:3af3a97c31fb44c9"
+  },
+  {
+   "id": "KB-design-principles.review-order",
+   "page": "KB-design-principles",
+   "path": "knowledge-base/17_design-principles.md",
+   "line": 114,
+   "end": 120,
+   "heading": [
+    "9. 審查順序：「手感弱」「拖沓」時先查什麼"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "juice",
+     "audio",
+     "ux"
+    ],
+    "genre": [
+     "*"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-11-19",
+   "tokens": 151,
+   "hash": "sha256:9af8621d1c2ecbe1"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.pitch",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 23,
+   "end": 26,
+   "heading": [
+    "一句話玩法"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "design",
+     "market"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 31,
+   "hash": "sha256:1a18c7c1b3760909"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.hook",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 28,
+   "end": 36,
+   "heading": [
+    "為什麼廣告有效（Hook）"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 226,
+   "hash": "sha256:1a11cf35f1131b16"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.spec",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 38,
+   "end": 72,
+   "heading": [
+    "遊戲規格"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "design",
+     "difficulty"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 652,
+   "hash": "sha256:d3ec5843f2515ac3"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.playable-ad",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 74,
+   "end": 79,
+   "heading": [
+    "可玩廣告（Playable Ad）結構"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "market"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 139,
+   "hash": "sha256:ac9a600d24c95231"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.skill-elements",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 81,
+   "end": 89,
+   "heading": [
+    "技巧要素"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "fairness",
+     "design"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 94,
+   "hash": "sha256:7cb82dbf25e8024f"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.randomness",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 91,
+   "end": 95,
+   "heading": [
+    "隨機 / 選擇噱頭"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "fairness"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 53,
+   "hash": "sha256:9e63113f0daa4bc1"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.adaptation",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 97,
+   "end": 107,
+   "heading": [
+    "Skill Game 化改造（必做）"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "fairness",
+     "design"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [
+    "RULE-AF-ADAPTATION"
+   ],
+   "reviewedAt": "2026-10-21",
+   "tokens": 417,
+   "hash": "sha256:f2c3aad0c3de038d"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.html5-spec",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 109,
+   "end": 119,
+   "heading": [
+    "HTML5 輕量實作規格"
+   ],
+   "kind": "method",
+   "facets": {
+    "topic": [
+     "tech",
+     "budget"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 335,
+   "hash": "sha256:54b9c6c061939b8f"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.theme-art",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 121,
+   "end": 125,
+   "heading": [
+    "主題與美術風格"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "theme",
+     "art"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 65,
+   "hash": "sha256:49e33b689e6eae12"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.borrow-avoid",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 127,
+   "end": 131,
+   "heading": [
+    "可借用 / 要避開"
+   ],
+   "kind": "lesson",
+   "facets": {
+    "topic": [
+     "design",
+     "market"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 170,
+   "hash": "sha256:59e5b301cadda38a"
+  },
+  {
+   "id": "KB-af-gate-lane-shooter.sources",
+   "page": "KB-af-gate-lane-shooter",
+   "path": "knowledge-base/ad-funnel/af-gate-lane-shooter.md",
+   "line": 133,
+   "end": 146,
+   "heading": [
+    "來源"
+   ],
+   "kind": "research",
+   "facets": {
+    "topic": [
+     "design",
+     "market"
+    ],
+    "genre": [
+     "lane-shooter"
+    ],
+    "skillAxis": [
+     "aim",
+     "planning"
+    ],
+    "source": [
+     "af-gate-lane-shooter"
+    ]
+   },
+   "rules": [],
+   "reviewedAt": "2026-10-21",
+   "tokens": 455,
+   "hash": "sha256:00bb16e69d3b1806"
+  }
+ ],
+ "unindexed": [
+  "knowledge-base/09_knowledge-gaps.md",
+  "knowledge-base/README.md",
+  "knowledge-base/ad-funnel/_TEMPLATE_spec.md",
+  "knowledge-base/ad-funnel/_notes-runner-fake-ads.md",
+  "knowledge-base/ad-funnel/_notes-sort-jam.md",
+  "knowledge-base/ad-funnel/af-arrows-escape.md",
+  "knowledge-base/ad-funnel/af-block-blast.md",
+  "knowledge-base/ad-funnel/af-bridge-run-merge.md",
+  "knowledge-base/ad-funnel/af-bus-jam.md",
+  "knowledge-base/ad-funnel/af-color-block-jam.md",
+  "knowledge-base/ad-funnel/af-distress-idle-arcade.md",
+  "knowledge-base/ad-funnel/af-draw-to-protect.md",
+  "knowledge-base/ad-funnel/af-gate-runner.md",
+  "knowledge-base/ad-funnel/af-horde-defense.md",
+  "knowledge-base/ad-funnel/af-magic-sort.md",
+  "knowledge-base/ad-funnel/af-match-factory.md",
+  "knowledge-base/ad-funnel/af-number-tower.md",
+  "knowledge-base/ad-funnel/af-pixel-flow.md",
+  "knowledge-base/ad-funnel/af-pull-the-pin.md",
+  "knowledge-base/ad-funnel/af-screw-jam.md",
+  "knowledge-base/ad-funnel/af-survivor-skill-pick.md",
+  "knowledge-base/decisions/2026-10-21-kb-asset-architecture.md",
+  "knowledge-base/decisions/2026-11-10-libraries-and-loop.md",
+  "knowledge-base/decisions/2026-11-11-generality-backlog.md",
+  "knowledge-base/decisions/2026-11-11-paper-pilot-pool-word.md",
+  "knowledge-base/decisions/2026-11-11-paper-pilot-solitaire.md",
+  "knowledge-base/decisions/2026-11-11-skill-evidence.md"
+ ]
+}

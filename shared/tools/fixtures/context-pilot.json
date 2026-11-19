@@ -1,0 +1,74 @@
+{
+  "about": "C 階段試點（knowledge-base/decisions/2026-11-10-libraries-and-loop.md §6）：把 bootstrap.md §0 的七個「階段 → 必讀頁」改寫成取用宣告，驗證最終脈絡包涵蓋手寫表（expectPages：每頁至少一張卡進包）。D 階段會把這些 step 轉成 shared/loop/nodes.json 的節點。",
+  "steps": [
+    {
+      "id": "kickoff", "name": "立項",
+      "pull": {
+        "kb": [
+          { "topic": ["fairness"], "kind": ["principle", "method"] },
+          { "topic": ["legal"], "jurisdiction": ["$profile.jurisdiction"] },
+          { "topic": ["market", "legal"], "kind": ["research", "principle", "method"] }
+        ]
+      },
+      "budget": { "kbTokens": 6000 },
+      "gate": { "must": ["RULE-LEGAL-EXCLUDE-CHANCE", "RULE-SPEC-FAIRNESS"] },
+      "expectPages": ["KB-skill-integrity", "KB-market-legal"]
+    },
+    {
+      "id": "adaptation", "name": "改編題：廣告玩法改造",
+      "pull": {
+        "kb": [
+          { "source": ["$profile.source"] },
+          { "topic": ["design", "market"], "kind": ["principle", "research"], "genre": ["$profile.genre"] }
+        ]
+      },
+      "budget": { "kbTokens": 8000 },
+      "gate": { "must": ["RULE-AF-ADAPTATION"] },
+      "expectPages": ["KB-af-gate-lane-shooter", "KB-ad-funnel-games"]
+    },
+    {
+      "id": "spec", "name": "玩法規格",
+      "pull": {
+        "kb": [
+          { "topic": ["design", "scoring", "fairness"], "kind": ["recipe", "method", "principle"], "genre": ["$profile.genre"] },
+          { "topic": ["input"], "kind": ["method"] }
+        ],
+        "rules": { "id": ["RULE-GAME-DOCS", "RULE-SPEC-*"] }
+      },
+      "budget": { "kbTokens": 6000 },
+      "gate": { "must": ["RULE-GAME-DOCS", "RULE-SPEC-FAIRNESS"] },
+      "expectPages": ["KB-design-patterns", "KB-genre-recipes", "KB-input-fairness"]
+    },
+    {
+      "id": "difficulty", "name": "難度曲線",
+      "pull": { "kb": { "topic": ["difficulty"], "genre": ["$profile.genre"], "kind": ["method", "principle", "lesson"] } },
+      "budget": { "kbTokens": 6000 },
+      "gate": { "must": ["RULE-SKILL-DOMINANCE", "RULE-CURVE-*"] },
+      "expectPages": ["KB-difficulty-curve"]
+    },
+    {
+      "id": "feel", "name": "手感 / 音效",
+      "pull": { "kb": { "topic": ["juice", "audio", "ux"], "genre": ["$profile.genre"], "kind": ["method", "lesson", "research"] } },
+      "budget": { "kbTokens": 6000 },
+      "gate": { "must": ["RULE-FX-FILTER"] },
+      "expectPages": ["KB-juice-feel", "KB-audio", "KB-reference-games"]
+    },
+    {
+      "id": "art", "name": "美術",
+      "pull": {
+        "kb": { "topic": ["art", "theme"], "artStyle": ["$profile.artStyle"], "kind": ["method", "recipe", "lesson", "research"] },
+        "assets": { "game": ["$profile.game", "shared"] }
+      },
+      "budget": { "kbTokens": 6000 },
+      "gate": { "must": ["RULE-ASSET-REGISTER", "RULE-ART-TW-TABOO"] },
+      "expectPages": ["KB-art-pipeline", "KB-themes-liveops", "KB-asset-library", "KB-terrain-style-kit"]
+    },
+    {
+      "id": "tech", "name": "技術 / 預算",
+      "pull": { "kb": { "topic": ["tech", "budget"], "renderer": ["$profile.renderer"], "kind": ["principle", "method"] } },
+      "budget": { "kbTokens": 6000 },
+      "gate": { "must": ["RULE-BUNDLE-SIZE", "RULE-NO-RUNTIME-CDN", "RULE-DRAWCALL-*", "RULE-SIM-PURITY"] },
+      "expectPages": ["KB-tech-stack"]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "about": "生圖 prompt 模板（原 asset-index.json 的 promptBlocks）；原文與用法見 knowledge-base/10_asset-library.md §4。",
+  "blocks": {
+    "_note": "原文取自 SwarmDuel/art/prompts 與 tools/anim_prompts.py；{大括號} 為佔位符。",
+    "header": "Generate one image with your image generation tool. Do not write any files.",
+    "styleLock": "Style lock (shared by every asset in this game): original 16-bit pixel art for a top-down 3/4 overhead action game, chunky clean pixel clusters, 1-pixel dark contour, limited palette with 3 tones per material (shadow / mid / highlight), light from the upper-left, bold saturated Saturday-morning-cartoon colors aimed at a North American audience. Original design only: no Pokemon, no existing franchise characters. Actual transparent background (alpha), NOT a painted checkerboard. No text, no labels, no ground plane, no cast shadow, no gradients, no smooth airbrush shading, no blur.",
+    "identitySheet": "Generate one image with your image generation tool. Do not write any files.\n\nCreate a character identity reference sheet for an original {ROLE: game hero | swarm enemy}: \"{NAME}\", {CHARACTER_DESC}.\nShow exactly three full-body poses of the SAME character side by side, same scale, evenly spaced{, standing idle}: (1) facing the camera / down, (2) facing right, (3) facing away / up.\nTarget native game frame after processing: about {W}x{H} pixels per pose with feet at bottom-center{, so draw with big readable pixel blocks}.\nStyle lock (shared by every asset in this game): original 16-bit pixel art for a top-down 3/4 overhead action game, chunky clean pixel clusters, 1-pixel dark contour, limited palette with 3 tones per material (shadow / mid / highlight), light from the upper-left, bold saturated Saturday-morning-cartoon colors aimed at a North American audience. Original design only: no Pokemon, no existing franchise characters. Actual transparent background (alpha), NOT a painted checkerboard. No text, no labels, no ground plane, no cast shadow, no gradients, no smooth airbrush shading, no blur.",
+    "nativeLowResTail": "Draw it as TRUE LOW-RESOLUTION pixel art: each pose is exactly 32x40 art pixels, and the whole image is upscaled with nearest-neighbour so every art pixel is a clean, equal, hard-edged square block (about 16x16 screen pixels per art pixel). No sub-pixel detail, no anti-aliasing, no gradients, no smooth curves. 1-art-pixel dark outline around the whole silhouette. Limited palette (max 16 colors). Light from upper-left. Actual transparent background (alpha). No text, labels, ground, or shadow.",
+    "nativeSheet": "Generate one image with your image generation tool. Do not write any files.\n\nCreate a sprite reference sheet for an original {ROLE: top-down 3/4 action game hero | swarm enemy}: \"{NAME}\", {CHARACTER_DESC}. Show exactly three {standing idle }poses side by side with wide transparent gaps: (1) facing the camera, (2) facing right, (3) facing away.\nDraw it as TRUE LOW-RESOLUTION pixel art: each pose is exactly {W}x{H} art pixels, and the whole image is upscaled with nearest-neighbour so every art pixel is a clean, equal, hard-edged square block (about 16x16 screen pixels per art pixel). No sub-pixel detail, no anti-aliasing, no gradients, no smooth curves. 1-art-pixel dark outline around the whole silhouette. Limited palette (max 16 colors). Light from upper-left. Actual transparent background (alpha). No text, labels, ground, or shadow.",
+    "animStrip": "Generate one image with your image generation tool. Do not write any files.\n\nDraw an animation strip for the original game character {CHARACTER_DESC}.\nAttached image 1 is the accepted identity sheet (front, right side, back): copy its exact species, proportions, face, colors, accessories, outline and pixel-art style. Attached image 2 is the identity pose closest to the requested facing.{IF_WALK_AND_HAS_IDLE: Attached image 3 is the accepted Idle frame for this exact facing: keep its camera, size and proportions.}\n\nAction: {ANIM}. Facing: {FACING}. Every frame faces the same direction.\nShow exactly {N} frames of the SAME character in ONE horizontal row, left to right, same scale, feet on the same ground line, separated by wide transparent gaps:\n{BEATS: - frame i: ...}\nOnly the limbs/body described change between frames; head size, colors, scarf/suit details and outline stay identical.{IF_SASQ_WALK_AND_HAS_IDLE: The hanging scarf tail stays on the same side of the body as in attached image 3.}\n\nDraw it as TRUE LOW-RESOLUTION pixel art: each frame is exactly {W}x{H} art pixels, and the whole image is upscaled with nearest-neighbour so every art pixel is a clean, equal, hard-edged square block (about 16x16 screen pixels per art pixel). No sub-pixel detail, no anti-aliasing, no gradients, no smooth curves. 1-art-pixel dark outline around the whole silhouette. Limited palette (max 16 colors). Light from upper-left. Actual transparent background (alpha). No text, labels, frame numbers, grid, ground, or shadow.",
+    "animBeats": {
+      "Idle": {
+        "frames": 2,
+        "beats": [
+          "frame 1: relaxed standing pose, arms down",
+          "frame 2: the same standing pose breathing in: head and shoulders exactly 1 art pixel lower, arms 1 art pixel further from the body; feet do not move"
+        ]
+      },
+      "Walk": {
+        "frames": 4,
+        "beats": [
+          "frame 1: contact pose, left foot forward and right foot back, arms swinging opposite to the legs",
+          "frame 2: passing pose, legs together under the body, body 1 art pixel higher",
+          "frame 3: contact pose, right foot forward and left foot back (mirror of the frame 1 leg/arm positions)",
+          "frame 4: passing pose, legs together under the body, body 1 art pixel higher"
+        ]
+      }
+    },
+    "facing": {
+      "down": "facing the camera (front view, viewer sees the face)",
+      "down_right": "three-quarter FRONT view turned toward the viewer's right (face visible, body angled 45 degrees to the right, toward the bottom-right of the screen)",
+      "right": "side profile facing the viewer's right",
+      "up_right": "three-quarter BACK view: the character walks away toward the top-right of the screen, body rotated 45 degrees, so we see its back AND its right side (right arm and right shoulder fully visible, left arm mostly hidden behind the body, face hidden). Every frame keeps exactly this rotation and size",
+      "up": "facing away from the camera (back view, face not visible)"
+    },
+    "nearestRef": {
+      "down": "down",
+      "down_right": "down",
+      "right": "right",
+      "up_right": "up",
+      "up": "up"
+    },
+    "characterDesc": {
+      "sasq": "\"Sasq\", a young friendly Bigfoot with chestnut-brown shaggy fur, tan face, big eyes, a red-and-black plaid scarf, chunky feet, chibi proportions (head ~40% of height)",
+      "greyling": "\"Greyling\", a tiny grey alien with a big round head, huge glossy black eyes, a short antenna with a lime-green glowing tip, and a small silver suit with a jetpack"
+    },
+    "icon": "Generate one image with your image generation tool. Do not write any files.\n\nCreate one isolated pixel-art game icon: {ICON_SUBJECT}\nChunky 16-bit pixel art game UI icon in the style of mobile roguelite survivor games (bold, saturated, high contrast), 2-pixel dark outline, 3 tones per material, upper-left light, readable at 48x48 pixels. Single centered object with generous transparent padding. Actual transparent background (alpha), not a checkerboard. No text, no letters, no numbers, no frame, no background shape.",
+    "iconSubjects": {
+      "pinecone": "a brown pinecone mid-throw with two small motion lines",
+      "campfire": "a small ring of three orange flames orbiting in a circle",
+      "static_fur": "a tuft of brown fur crackling with cyan electric sparks",
+      "p_speed": "a big furry brown foot with a green speed swoosh",
+      "p_might": "a clenched big furry brown fist with a white impact star",
+      "p_magnet": "a glowing lime-green ectoplasm orb being pulled by a horseshoe magnet",
+      "p_cooldown": "a silver camping stopwatch with a lime-green arrow circling it",
+      "p_hp": "a red heart made of thick shaggy fur",
+      "snack": "a grilled hot dog with mustard on a stick",
+      "bounty": "a gold sheriff star badge with a shine",
+      "skull": "a small grey alien skull with big black eye sockets",
+      "ecto": "a single glowing lime-green ectoplasm droplet orb"
+    },
+    "prop": "Generate one image with your image generation tool. Do not write any files.\n\nCreate one isolated 2D game prop: {PROP_DESC}. Single object only, centered, bottom-center foot anchor at the base of the {BASE_PART}, full object inside the frame with safe transparent padding.\nTarget native art frame after processing: {W}x{H} pixels.\nStyle lock (shared by every asset in this game): original 16-bit pixel art for a top-down 3/4 overhead action game, chunky clean pixel clusters, 1-pixel dark contour, limited palette with 3 tones per material (shadow / mid / highlight), light from the upper-left, bold saturated Saturday-morning-cartoon colors aimed at a North American audience. Original design only: no Pokemon, no existing franchise characters. Actual transparent background (alpha), NOT a painted checkerboard. No text, no labels, no ground plane, no cast shadow, no gradients, no smooth airbrush shading, no blur.",
+    "keyArt": "Generate one image with your image generation tool. Do not write any files.\n\nCreate a 16:9 pixel-art key art scene for an original {GENRE} set in {SETTING}: {HERO_DESC} stands center, surrounded by {ENEMY_SWARM_DESC}, {SCENE_PROPS}. Same 16-bit pixel art style: chunky pixel clusters, 1-pixel dark contours, limited palette, {LIGHTING}, bold Saturday-morning-cartoon colors for a North American audience. Leave empty dark sky space at the top for a logo to be added later. No text, no letters, no logo, no UI.",
+    "glossarySuffixes": {
+      "uiAsset": "game UI asset, isolated on transparent background, centered, high readability at small size",
+      "characterSheet": "full body character design, front view, clean silhouette, consistent style sheet",
+      "negativeCasino": "no slot machine, no casino chips, no playing-card suits, no dice, no jackpot text",
+      "negativeText": "no text"
+    }
+  }
+}

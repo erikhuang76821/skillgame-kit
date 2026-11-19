@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>Skill Game</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #0e1620; overflow: hidden; touch-action: none;
+      -webkit-user-select: none; user-select: none; overscroll-behavior: none; color: #e7eef5;
+      font: 600 16px/1.3 system-ui, sans-serif; }
+    /* Layering: #stage (clips) > #stage-shake (shaken by GSAP) > canvas; #fx and #hud are siblings, never shaken. */
+    #stage { position: fixed; inset: 0; overflow: hidden; background: #0e1620; }
+    #stage-shake { position: absolute; inset: -12px; will-change: transform; }
+    #stage-shake canvas { position: absolute; inset: 12px; display: block; }
+    #fx { position: fixed; inset: 0; pointer-events: none; }
+    #fx-vignette, #fx-flash { position: absolute; inset: 0; opacity: 0; }
+    #fx-vignette { background: radial-gradient(ellipse at center, transparent 55%, rgba(200, 0, 0, .65) 100%); }
+    #fx-flash { background: #fff; mix-blend-mode: screen; }
+    #hud { position: fixed; inset: 0; pointer-events: none;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+    #hud .score { position: absolute; top: 12px; left: 16px; font-size: 24px; text-shadow: 0 2px 0 #000; }
+    #hud .dc { position: absolute; top: 12px; right: 16px; font: 12px/1 ui-monospace, monospace; opacity: .7; }
+    #hud .status { position: absolute; left: 16px; right: 16px; bottom: calc(24px + env(safe-area-inset-bottom));
+      text-align: center; font-size: 15px; text-shadow: 0 2px 0 #000; }
+    #hud button { pointer-events: auto; }
+  </style>
+</head>
+<body>
+  <div id="stage"><div id="stage-shake"></div></div>
+  <div id="fx" aria-hidden="true"><div id="fx-vignette"></div><div id="fx-flash"></div></div>
+  <div id="hud">
+    <div class="score">0</div>
+    <div class="dc" hidden></div>
+    <div class="status" role="status"></div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

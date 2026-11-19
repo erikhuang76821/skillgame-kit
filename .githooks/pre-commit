@@ -1,0 +1,4 @@
+#!/bin/sh
+# SKILLGAME pre-commit: runs the checks for what this commit touches (shared/tools/precommit.mjs).
+# Enable once per clone:  git config core.hooksPath .githooks
+exec node shared/tools/precommit.mjs

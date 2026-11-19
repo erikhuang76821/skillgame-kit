@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "game": "TwinStrike",
+  "genre": ["rhythm"],
+  "skillAxis": ["timing", "reaction"],
+  "renderer": ["2d"],
+  "scriptedProgression": true,
+  "source": ["original"],
+  "jurisdiction": ["TW", "US-*"],
+  "artStyle": ["chibi", "sticker"]
+}

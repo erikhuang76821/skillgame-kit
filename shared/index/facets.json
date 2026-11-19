@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "about": "facet 詞彙唯一來源（knowledge-base/decisions/2026-11-10-libraries-and-loop.md §2、§8）。知識卡、資產、測試卡、遊戲 profile 只能用這裡列出的值；\"*\" 表示明確萬用，沒標 = 未知（不是萬用）。新增值直接加在這裡，index-build 會擋未登錄的值。",
+  "facets": {
+    "topic": {
+      "about": "內容在講什麼",
+      "values": {
+        "fairness": "技巧主導、去隨機化、公平性證明",
+        "difficulty": "難度曲線、容錯、自動試玩驗收",
+        "design": "玩法規則、核心循環、品類設計",
+        "scoring": "計分、局長、排名",
+        "monetization": "變現模式",
+        "input": "輸入、延遲校正、防巨集",
+        "tech": "技術棧、分層、確定性、渲染",
+        "budget": "包體、Draw Call、效能",
+        "juice": "打擊感、手感、GSAP、Spine",
+        "audio": "音效、混音、音訊時鐘",
+        "art": "美術管線、生圖、sprite、地表",
+        "ux": "介面、RWD、過場、無障礙",
+        "theme": "題材、選皮、本地化",
+        "liveops": "活動檔期、營運",
+        "market": "市場、競品、投放",
+        "legal": "法規、排除標準",
+        "process": "生產流程、指令、工具位置"
+      }
+    },
+    "genre": {
+      "about": "品類",
+      "values": {
+        "rhythm": "節奏 / 時機判定",
+        "physics": "確定性物理（撞球、彈珠、泡泡龍）",
+        "lane-shooter": "跑道射擊＋加乘門",
+        "shmup": "捲軸飛行射擊（走位閃彈＋擊破計分）",
+        "runner": "跑酷",
+        "sort-puzzle": "排序 / 解鎖類解謎（jam、sort、pin）",
+        "block-puzzle": "方塊擺放",
+        "survivor": "割草 / 倖存者",
+        "tower-defense": "塔防 / 守線",
+        "merge": "合成",
+        "idle": "放置 / 經營",
+        "arena": "競技場對戰（SwarmDuel 類）"
+      }
+    },
+    "skillAxis": {
+      "about": "玩家主要靠哪種技巧",
+      "values": {
+        "timing": "時機",
+        "aim": "瞄準 / 走位",
+        "reaction": "反應",
+        "planning": "規劃 / 決策",
+        "routing": "路線"
+      }
+    },
+    "renderer": {
+      "about": "渲染維度",
+      "values": { "2d": "PixiJS 2D", "3d": "three / ogl" }
+    },
+    "jurisdiction": {
+      "about": "法規適用地區；沒標的內容永遠不以地區命中",
+      "values": { "TW": "台灣", "US-*": "美國各州", "CA": "加拿大", "UK": "英國" }
+    },
+    "artStyle": {
+      "about": "美術風格",
+      "values": {
+        "pixel": "像素",
+        "chibi": "Q 版",
+        "sticker": "貼紙風",
+        "2.5d": "2.5D / 等角",
+        "realistic": "寫實貼圖",
+        "procedural": "程式繪製，0 張圖檔"
+      }
+    },
+    "source": {
+      "about": "題目來源：原創，或 knowledge-base/ad-funnel/af-*.md 的代號（值由檔名產生，不在這裡列）",
+      "values": { "original": "原創" },
+      "fromFiles": "knowledge-base/ad-funnel/af-*.md"
+    }
+  },
+  "kbKinds": {
+    "principle": "原則：不分品類都成立的承諾與檢查表",
+    "method": "方法論：怎麼做、怎麼驗收",
+    "recipe": "品類配方：某類玩法的實作做法",
+    "research": "調查：市場、法規、參考遊戲、廣告玩法規格書",
+    "lesson": "踩坑與調校教訓",
+    "gap": "知識缺口"
+  }
+}

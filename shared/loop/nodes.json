@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "about": "迴圈節點圖（knowledge-base/decisions/2026-11-10-libraries-and-loop.md §4.2、§8）。節點只寫 facet 查詢與規則 id，不寫知識庫檔名；路徑一律相對於 <Game>/。由 shared/tools/loop.mjs 執行、index-build 驗證並產生 bootstrap.md §0 必讀表。",
+  "fields": {
+    "after": "上游節點；本節點的 inputHash = 上游（遞移）produces ＋ requires 的內容雜湊",
+    "produces": "本節點只改這些路徑；outputHash 由它們算出，關卡通過後內容變了就是「需重驗」",
+    "producesWhen": "{ <profile 旗標>: [路徑] }：只有該旗標不是 false 的遊戲才有這些產出（沒填時照樣要，關卡另由「資料待補」擋下）。算缺檔與雜湊時併入 produces",
+    "pull": "取用宣告，語意同 shared/tools/context.mjs（$profile.* 代入；kb 可為選擇器陣列＝聯集）",
+    "gate.must": "關卡規則（id 或 RULE-X-*；\"*\" = 全部有效規則）。script 規則跑測試卡，review 規則與 checkpoint 要人工核准（綁 outputHash）",
+    "gate.tests": "不實作任何規則、但本節點要跑的測試卡（例如 TEST-UNIT）",
+    "onFail": "rule 對到的失敗自動路由到 goto；多個失敗取最上游。when 只是給人的提示，不自動路由。沒對到 → 本節點下一輪",
+    "maxIterations": "同一 (node, inputHash) 的關卡失敗次數上限；達到就停下來交給人，不得改門檻"
+  },
+  "nodes": [
+    {
+      "id": "N0-kickoff", "name": "立項",
+      "after": [],
+      "pull": {
+        "kb": [
+          { "topic": ["legal"], "jurisdiction": ["$profile.jurisdiction"] },
+          { "topic": ["market", "legal"], "kind": ["research", "principle", "method"] },
+          { "topic": ["fairness"], "kind": ["principle"] }
+        ],
+        "assets": { "reusePolicy": ["reusable"] }
+      },
+      "budget": { "kbTokens": 6000 },
+      "produces": ["game.profile.json", "README.md"],
+      "gate": { "must": ["RULE-LEGAL-EXCLUDE-CHANCE"] },
+      "onFail": [],
+      "maxIterations": 3,
+      "checkpoint": "題目核准：不落入排除標準、profile 正確"
+    },
+    {
+      "id": "N1-derandomize", "name": "去隨機化",
+      "after": ["N0-kickoff"],
+      "pull": {
+        "kb": { "topic": ["fairness"], "kind": ["principle", "method"] },
+        "rules": { "id": ["RULE-SPEC-FAIRNESS"] }
+      },
+      "budget": { "kbTokens": 6000 },
+      "produces": ["gdd/03_skill_integrity.md"],
+      "gate": { "must": [] },
+      "onFail": [{ "when": "題目本身無法去隨機化", "goto": "N0-kickoff", "hint": "換題或改核心機制" }],
+      "maxIterations": 3,
+      "checkpoint": null
+    },
+    {
+      "id": "N2-spec", "name": "玩法規格（含改編題改造對照）",
+      "after": ["N1-derandomize"],
+      "pull": {
+        "kb": [
+          { "source": ["$profile.source"] },
+          { "topic": ["design", "market"], "kind": ["principle", "research"], "genre": ["$profile.genre"] },
+          { "topic": ["design", "scoring", "fairness"], "kind": ["recipe", "method", "principle"], "genre": ["$profile.genre"] },
+          { "topic": ["input"], "kind": ["method"] }
+        ],
+        "rules": { "id": ["RULE-GAME-DOCS", "RULE-SPEC-*"] }
+      },
+      "budget": { "kbTokens": 14000 },
+      "produces": ["gdd/05_game_spec.md", "gdd/10_tech_constraints.md", "gdd/11_risks_open.md"],
+      "gate": { "must": ["RULE-SPEC-FAIRNESS", "RULE-AF-ADAPTATION"] },
+      "onFail": [{ "when": "公平性答不出來", "goto": "N1-derandomize", "hint": "回去補隨機來源清單" }],
+      "maxIterations": 5,
+      "checkpoint": "規格核准"
+    },
+    {
+      "id": "N3-scaffold", "name": "起手（複製範本）",
+      "after": ["N2-spec"],
+      "pull": { "kb": { "topic": ["tech"], "kind": ["recipe"] } },
+      "budget": { "kbTokens": 4000 },
+      "produces": ["game/package.json"],
+      "gate": { "must": [], "tests": ["TEST-UNIT"] },
+      "onFail": [],
+      "maxIterations": 2,
+      "checkpoint": null
+    },
+    {
+      "id": "N4-sim", "name": "確定性 sim、比較策略、golden",
+      "after": ["N3-scaffold"],
+      "pull": {
+        "kb": [
+          { "topic": ["tech"], "kind": ["recipe", "method", "principle"] },
+          { "topic": ["fairness", "input"], "kind": ["method"], "genre": ["$profile.genre"] }
+        ]
+      },
+      "budget": { "kbTokens": 6000 },
+      "produces": ["game/src/sim/sim.js", "game/test/determinism.test.mjs", "game/tools/strategies.mjs"],
+      "gate": { "must": ["RULE-SIM-PURITY", "RULE-SPEC-CONSTANTS"], "tests": ["TEST-UNIT"] },
+      "onFail": [{ "when": "規格與 sim 對不上、要改規格", "goto": "N2-spec", "hint": "改規格要 GAME.version+1" }],
+      "maxIterations": 5,
+      "checkpoint": null
+    },
+    {
+      "id": "N5-tune", "name": "技巧證據與難度曲線",
+      "after": ["N4-sim"],
+      "pull": { "kb": { "topic": ["difficulty"], "genre": ["$profile.genre"], "kind": ["method", "principle", "lesson"] } },
+      "budget": { "kbTokens": 6000 },
+      "produces": ["docs/skill_evidence_report.md", "docs/skill_evidence_ledger.json"],
+      "producesWhen": { "scriptedProgression": ["docs/playtest_report.md", "gdd/07_difficulty_curve.md"] },
+      "gate": { "must": ["RULE-SKILL-EVIDENCE", "RULE-SKILL-NOT-LUCK", "RULE-SKILL-BEATS-SIMPLE", "RULE-SKILL-DOMINANCE", "RULE-SKILL-BASELINE", "RULE-CURVE-*"] },
+      "onFail": [
+        { "rule": "RULE-SKILL-EVIDENCE", "goto": "N4-sim", "hint": "策略檔不完整或題數不足：補 tools/strategies.mjs（強、隨機、簡單，各寫明看得到什麼與能力限制），不動門檻" },
+        { "rule": "RULE-SKILL-NOT-LUCK", "goto": "N2-spec", "hint": "強策略贏不了隨機策略＝結果主要由運氣決定：回規格改機制（改規格要 GAME.version+1）。改完要用下一批確認題" },
+        { "rule": "RULE-SKILL-BEATS-SIMPLE", "goto": "N2-spec", "hint": "先確認強策略已經盡力（N4）；若一句話規則真的追得上，機制太淺，回規格加需要判斷的取捨（改規格要 GAME.version+1）。改完要用下一批確認題" },
+        { "rule": "RULE-CURVE-*", "goto": "N4-sim", "hint": "調難度腳本與段落表；結構問題回 N2" },
+        { "when": "結構性問題", "goto": "N2-spec", "hint": "改規格要 GAME.version+1" }
+      ],
+      "maxIterations": 5,
+      "checkpoint": null
+    },
+    {
+      "id": "N6-art", "name": "美術：生成、審查、登錄",
+      "after": ["N4-sim"],
+      "pull": {
+        "kb": { "topic": ["art", "theme"], "artStyle": ["$profile.artStyle"], "kind": ["method", "recipe", "lesson", "research"] },
+        "assets": { "game": ["$profile.game", "shared"] }
+      },
+      "budget": { "kbTokens": 6000 },
+      "produces": ["art/", "game/src/assets/"],
+      "gate": { "must": ["RULE-ASSET-REGISTER", "RULE-ART-TW-TABOO"] },
+      "onFail": [],
+      "maxIterations": 5,
+      "checkpoint": "美術審查"
+    },
+    {
+      "id": "N7-feel", "name": "手感、音效、UI",
+      "after": ["N4-sim"],
+      "pull": { "kb": { "topic": ["juice", "audio", "ux"], "genre": ["$profile.genre"], "kind": ["method", "lesson", "research"] } },
+      "budget": { "kbTokens": 6000 },
+      "produces": ["game/src/fx/feel.js", "game/src/audio/sfx.js", "game/src/ui/"],
+      "gate": { "must": ["RULE-FX-FILTER", "RULE-TEMPLATE-LEFTOVER"] },
+      "onFail": [],
+      "maxIterations": 5,
+      "checkpoint": null
+    },
+    {
+      "id": "N8-budget", "name": "包體與 Draw Call",
+      "after": ["N6-art", "N7-feel"],
+      "pull": { "kb": { "topic": ["tech", "budget"], "renderer": ["$profile.renderer"], "kind": ["principle", "method"] } },
+      "budget": { "kbTokens": 6000 },
+      "produces": [],
+      "gate": { "must": ["RULE-BUNDLE-SIZE", "RULE-NO-RUNTIME-CDN", "RULE-DRAWCALL-*"] },
+      "onFail": [
+        { "rule": "RULE-BUNDLE-SIZE", "goto": "N6-art", "hint": "圖太大：壓縮或改程式繪製" },
+        { "rule": "RULE-NO-RUNTIME-CDN", "goto": "N4-sim", "hint": "改成打包進來" },
+        { "rule": "RULE-DRAWCALL-*", "goto": "N7-feel", "hint": "合批、減少特效圖層" }
+      ],
+      "maxIterations": 5,
+      "checkpoint": null
+    },
+    {
+      "id": "N9-human", "name": "人工試玩（對照 bot）",
+      "after": ["N5-tune", "N8-budget"],
+      "pull": { "kb": { "topic": ["difficulty", "fairness"], "kind": ["method", "lesson"] } },
+      "budget": { "kbTokens": 4000 },
+      "produces": ["playtest-data/"],
+      "gate": { "must": [], "tests": ["TEST-HUMAN-PLAYTEST"] },
+      "onFail": [{ "when": "真人與 bot 不一致", "goto": "N5-tune", "hint": "先校正 humanBots，再回調校" }],
+      "maxIterations": 3,
+      "checkpoint": "試玩結論（沒有真人資料時，由人核准略過並寫明理由）"
+    },
+    {
+      "id": "N10-release", "name": "發布關卡（全量）",
+      "after": ["N9-human"],
+      "pull": { "rules": { "id": ["*"] } },
+      "budget": { "kbTokens": 6000 },
+      "produces": [],
+      "gate": { "must": ["*"], "tests": ["TEST-UNIT"] },
+      "onFail": [],
+      "maxIterations": 3,
+      "checkpoint": "上線核准"
+    },
+    {
+      "id": "N11-feedback", "name": "回饋到三庫",
+      "after": ["N10-release"],
+      "pull": {},
+      "budget": { "kbTokens": 0 },
+      "produces": [],
+      "gate": { "must": [] },
+      "onFail": [],
+      "maxIterations": 1,
+      "checkpoint": "晉升核准（§4.5）"
+    }
+  ]
+}

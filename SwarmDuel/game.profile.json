@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "game": "SwarmDuel",
+  "genre": ["survivor"],
+  "skillAxis": ["aim", "routing"],
+  "renderer": ["2d"],
+  "scriptedProgression": true,
+  "source": ["original"],
+  "jurisdiction": ["TW", "US-*"],
+  "artStyle": ["pixel"]
+}
